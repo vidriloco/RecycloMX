@@ -1,0 +1,17 @@
+<% if offers.empty? %>
+  <div class="empty">
+		<p class="centered">No tienes ningún reciclable publicado aún :(</p>
+		<br/>
+		<p class="centered"><%= link_to "Publicar ahora", new_offer_path, class: 'btn btn-info' %></p>
+	</div>
+<% else %>
+  <div class="empty no-unpublished hidden">
+    <p class="centered">No tienes ningún reciclable sin publicar, bien!</p>
+  </div>
+  <div class="empty no-published hidden">
+    <p class="centered">No tienes ningún reciclable publicado :(</p>
+		<br/>
+		<p class="centered"><%= link_to "Publicar ahora", new_offer_path, class: 'btn btn-info' %></p>
+  </div>
+	<%= render offers %>
+<% end %>

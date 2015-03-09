@@ -1,0 +1,28 @@
+<br/>
+<%= form_for(Appointment.new) do |a| %>
+	<div class="row form-group">
+	  <label for="inputMeetingTime" class="col-lg-3 control-label">Día y hora de recolección</label>
+	  <div class="col-lg-9 collecting-date">
+			<%= a.datetime_select :meeting_time, hide_label: true, class: 'form-control' %> 
+		</div>
+	</div>
+	<div class="row form-group">
+	  <div class="col-lg-3"></div>
+	  <div class="col-lg-9">
+			<%= a.text_area :notes, placeholder: "Notas", hide_label: true, class: 'form-control', rows: 1 %> 
+		</div>
+	</div>
+  
+  <%= a.hidden_field :offer_id, value: offer.id %>
+  
+  <div class="row centered">
+    <p>
+      <a href="#/<%= published_status_for(offer) %>" class="btn btn-default">
+        Cancelar
+      </a>
+      <%= a.submit 'Añadir', class: 'btn btn-primary'%>
+    </p>
+  </div>
+  
+<% end %>
+<br/>

@@ -1,0 +1,71 @@
+<div id="offers" class="offs">
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<% unless user_signed_in? %>
+				<div class="alert alert-dismissible alert-info">
+					<button class="close" data-dismiss="alert" type="button">×</button>
+					<strong>Bienvenid@ a recyclo!</strong>
+					Estás a unos pasos de probar la primera versión de una idea que revolucionará nuestras ciudades.
+				</div>
+			<% end %>
+			<div class="well bs-component">
+				<%= form_for(@offer, class: 'form-horizontal', html: {multipart: true}) do |f| %>
+
+          <fieldset>
+            <legend>Publica tus reciclables</legend>
+            <div class="row form-group">
+              <label for="inputKind" class="col-lg-3 control-label">¿De que tipo son?</label>
+              <div class="col-lg-9">
+								<%= f.select :kind, options_for_select(Offer.materials.invert.to_a), {}, 
+								{class: 'form-control'} %>
+              </div>
+            </div>
+            <div class="row form-group">
+              <label for="inputQuantity" class="col-lg-3 control-label">¿Cuántos son?</label>
+              <div class="col-lg-7">
+								<%= f.number_field :quantity, placeholder: "Cantidad", required: true, hide_label: true, class: 'form-control' %>
+							</div>
+              <div class="col-lg-2">
+                <%= f.select :quantifiable_type, options_for_select(humanized_offer_quantifiables), {}, {class: 'form-control'} %>
+              </div>
+            </div>
+            <div class="row form-group">
+              <label for="textDetails" class="col-lg-3 control-label">¿Algún detalle extra?</label>
+              <div class="col-lg-9">
+                <%= f.text_area :details, hide_label: true, class: 'form-control' %>
+                <span class="help-block">Escribe aquí detalles que puedan ser de utilidad para el recolector.</span>
+              </div>
+            </div>
+						
+						<% if user_signed_in? && !current_user.location.nil? %>
+							<%= render partial: 'locations/review', locals: { f: f, location: current_user.location} %>
+						<% else %>
+            	<%= render partial: 'locations/new', locals: {f: f} %>
+						<% end %>
+            
+            <div class="row form-group">
+
+            </div>
+            
+            <div class="row form-group">
+              <label for="textOfferPic" class="col-lg-3 control-label">Foto del reciclable</label>
+              <div class="col-lg-9">
+                <%= image_tag(@user.offer_image_url) if @offer.offer_image? %>
+                <%= f.file_field :offer_image %>
+                <%= f.hidden_field :offer_image_cache %>
+                <span class="help-block">Si tienes una foto a la mano, puedes añadirla para captar el interés de recolectores cercanos.</span>
+              </div>
+              <div class="col-lg-10 col-lg-offset-2">
+								<div class="pull-right">
+									<br/>
+									<%= link_to 'Cancelar', :back, class: "btn btn-default" %>
+									<%= f.submit 'Publicar', class: 'btn btn-primary'%>
+								</div>
+              </div>
+            </div>
+          </fieldset>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

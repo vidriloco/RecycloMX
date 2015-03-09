@@ -1,0 +1,19 @@
+<div id="deposit-<%= deposit.id %>" class="deposit" data-lng="<%= deposit.lon %>" data-lat="<%= deposit.lat %>">
+	<div class="modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	        <h4 class="modal-title"><%= deposit.name %> <span>Por <b><%= deposit.user.full_name %></b></span></h4>
+	      </div>
+	      <div class="modal-body">
+	        <%= deposit.details.html_safe %>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	      </div>
+				
+	    </div>
+	  </div>
+	</div>
+</div>

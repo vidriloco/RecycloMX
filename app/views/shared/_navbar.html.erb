@@ -1,0 +1,56 @@
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="<%= root_path %>">
+			<%= image_tag('logo-mini.png') %>
+		</a>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+				<% if user_signed_in? %>
+					<% if current_user.is_a_giver? %>
+						<li>
+							<a href="<%= new_offer_path %>">
+								<b><span class='glyphicon glyphicon-plus' aria-hidden="true"></span></b> Publicar reciclable
+							</a>
+						</li>
+						<li>
+							<a href="<%= user_profile_path(current_user.id) %>">
+								<b>Quiero ser recolector</b> 
+							</a>
+						</li>
+						<% elsif current_user.is_a_picker? %>
+						<li>
+							<a href="<%= offers_path %>">
+								<b><span class='glyphicon glyphicon-list' aria-hidden="true"></span></b> Buscar reciclables
+							</a>
+						</li>
+						<li>
+							<a href="<%= deposits_path %>">
+								<b><span class='glyphicon glyphicon-leaf' aria-hidden="true"></span></b> Centros de acopio
+							</a>
+						</li>
+						<li>
+							<a href="<%= user_profile_path(current_user.id) %>">
+								<b>Quiero donar</b> 
+							</a>
+						</li>
+					<% end %>
+				<% end %>
+      </ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+      		<li><a href="<%= user_activity_path(current_user.id) %>">Tu actividad</a></li>
+        	<li><a href="<%= user_profile_path(current_user.id) %>">Perfil</a></li>
+					<li><a href="<%= destroy_user_session_path %>">Salir</a></li>
+				<% else %>
+        	<li><a href="<%= new_user_session_path %>">Ingresar</a></li>
+				<% end %>
+      </ul>
+    </div>
+  </div>
+</div>

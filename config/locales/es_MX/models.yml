@@ -1,0 +1,26 @@
+es_MX:
+  models:
+    deposit:
+      name: "Deposito"
+      fields:
+        name: "Nombre"
+        details: "Detalles"
+        lat: "Latitud"
+        lon: "Longitud"
+        map: "Mapa"
+        user: "Subido por"
+    user:
+      name: "Usuario"
+      fields:
+        full_name: "Nombre"
+        email: "Correo"
+        password: "Contraseña"
+        password_confirmation: "Confirmación de la contraseña"
+        role: "Rol"
+        company: "Empresa"
+        last_sign_in_at: "Última fecha de inicio de sesión"
+        sign_in_count: "Total de entradas"
+      roles:
+        superuser: "Superusuario"
+        giver: "Donador"
+        picker: "Recolector"

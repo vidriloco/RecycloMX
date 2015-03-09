@@ -1,0 +1,61 @@
+<div class="container login">
+	<div class="row">
+		
+		<div class="col-lg-6 col-lg-offset-3">
+			<%= render 'shared/messages' %>
+			<div class="well bs-component">
+				<h3 class="title">Registrate</h3>
+				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+					<div class="form-group">
+					  <div class="col-lg-10 col-lg-offset-1">
+							<%= f.text_field :full_name, placeholder: "Escribe tu nombre", hide_label: true, class: 'form-control' %> 
+						</div>
+					</div>
+					<br/><br/>
+					<div class="form-group">
+					  <div class="col-lg-10 col-lg-offset-1">
+							<%= f.email_field :email, placeholder: "Escribe un e-mail válido", autofocus: true, hide_label: true, class: 'form-control' %> 
+						</div>
+					</div>
+					<br/><br/>
+					<div class="form-group">
+					  <div class="col-lg-10 col-lg-offset-1">
+							<%= f.password_field :password, placeholder: "Escribe una contraseña", hide_label: true, class: 'form-control' %> 
+						</div>
+					</div>
+					<br/><br/>
+					<div class="form-group">
+						<div class="col-lg-10 col-lg-offset-1">
+							<p><b>¿Cómo quieres participar?</b></p>
+						</div>
+						<div class="row col-lg-10 col-lg-offset-1">
+						  <div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-2 centered"><%= f.radio_button :role, User.roles[:giver] %></div>
+									<div class="col-lg-10"><%= f.label :role, "Donando" %></div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-2 centered"><%= f.radio_button :role, User.roles[:picker] %></div>
+									<div class="col-lg-10"><%= f.label :role, "Recolectando" %></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/><br/><br/>
+				  <div class="row">
+						<div class="col-lg-12 centered"><%= f.submit "Registrarme" %></div>
+					</div>
+				<% end %>
+				
+			</div>
+			
+			<div class="row action-links">
+				<div class="col-lg-12 centered">
+					<a href="<%= new_user_session_path %>"><b>¿Ya tienes una cuenta?</b> Ingresa con ella</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

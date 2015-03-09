@@ -1,0 +1,17 @@
+<div class="list-group">
+  <a href="<%= current_user==appointment.offer.user ? appointment_path(appointment) : 'javascript:void(0);' %>" data-method="delete" data-confirm="¿Deseas eliminar esta fecha?" class="list-group-item">
+    <% if current_user==appointment.offer.user %>
+      <span class="badge badge-danger">
+        <i class='glyphicon glyphicon-remove'></i> Eliminar
+      </span>
+    <% end %>
+    
+    <span>
+      <%= appointment.meeting_time.to_s(:short) %>
+      <% unless appointment.notes.blank? %>
+        <span class="emph-light"><%= appointment.notes %></span>
+      <% end %>
+    </span>
+
+  </a>
+</div>

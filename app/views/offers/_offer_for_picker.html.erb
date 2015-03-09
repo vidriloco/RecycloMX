@@ -1,0 +1,29 @@
+<div id="offer-<%= offer.id %>" class="offer-for-picker">	
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= humanized_title_for(offer) %></h5>
+      </div>
+      <div class="modal-body">
+        <div class="row col-lg-10 col-lg-offset-1 centered">
+          <p class="details"><%= offer.details.html_safe %></p>
+        </div>          
+        <% unless offer.offer_image.url.nil? %>
+				  <div class="col-lg-10 col-lg-offset-1 centered">
+            <%= image_tag(offer.offer_image.url, class: 'img-thumbnail')%>
+  			  </div>
+        <% end %>
+        <br/><br/>
+				<div class="row col-lg-10 col-lg-offset-1">
+          <h6>Horarios propuestos para recolectar este reciclable</h6>
+          <%= render offer.appointments %>
+        </div>        
+			</div>
+      <div class="modal-footer">          
+        <div class="row col-lg-12 actions">
+          <button type="button" class="btn btn-primary">Recolectar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

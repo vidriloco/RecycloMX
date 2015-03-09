@@ -1,0 +1,22 @@
+html, body {
+	background-color: #EEE;
+}
+
+.login-bg-photo {
+	width: 100%;
+	top: 8%;
+	left: 0;
+	position: absolute;
+}
+
+.login {
+	margin-top: 18%;
+
+	.title {
+		text-align: center;
+		border-bottom: 1px solid #DEE5DD;
+		margin-top: 20px;
+		margin-bottom: 40px;
+		padding-bottom: 15px;
+	}
+}

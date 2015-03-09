@@ -1,0 +1,13 @@
+<div id="landing-page" class="lp">
+	<div class="access-bar">
+		<%= link_to "<i class='glyphicon glyphicon-user'></i>&nbsp;&nbsp;&nbsp;Ingresar".html_safe, new_user_session_path %>
+	</div>
+	<div id="slides">
+	  <div class="slides-container">
+			<%= render partial: 'welcome/slides/slide', locals: {kind: 'metal'} %>
+			<%= render partial: 'welcome/slides/slide', locals: {kind: 'glass'} %>
+			<%= render partial: 'welcome/slides/slide', locals: {kind: 'paper'} %>
+			<%= render partial: 'welcome/slides/slide', locals: {kind: 'PET'} %>
+	  </div>
+	</div>
+</div>

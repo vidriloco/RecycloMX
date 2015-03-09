@@ -1,0 +1,29 @@
+<div class="container login">
+	<div class="row">
+		
+		<div class="col-lg-6 col-lg-offset-3">
+			<%= render 'shared/messages' %>
+			<div class="well bs-component">
+				<h3 class="title">Recuperar contraseña</h3>
+				<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+					<div class="form-group">
+					  <div class="col-lg-10 col-lg-offset-1">
+							<%= f.email_field :email, placeholder: "El correo a donde enviaremos tu contraseña", autofocus: true, hide_label: true, class: 'form-control' %> 
+						</div>
+					</div>
+					<br/><br/><br/>
+				  <div class="row">
+						<div class="col-lg-12 centered"><%= f.submit "Recuperar mi contraseña" %></div>
+					</div>
+				<% end %>
+				
+			</div>
+			
+			<div class="row action-links">
+				<div class="col-lg-12 centered">
+					<a href="<%= new_user_session_path %>"><b>¿Ya la recordaste?</b> Inicia sesión</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,119 @@
+.lp {
+	
+	.access-bar {
+		position: fixed;
+		float: right;
+		top: 15px;
+		right: 30px;
+		z-index: 99999;
+		font-size: 17px;
+		a {
+			color: white;
+		}
+	}
+	
+	.slide {	
+		
+		p {
+			color: white;
+		}
+		
+		.logo {
+			margin: 20px;
+			width: 300px !important;
+			height: 150px !important;
+		}
+		
+		.header {			
+			.title {
+				padding: 10px 0 0 0;
+				vertical-align: middle;
+				font-size: 18px;
+				width: 50%;
+			}
+		}
+		
+		.main-content {
+			margin: 8% auto 5% auto;
+			display: table;
+			
+			.icon:hover {
+				background-color: rgba(255,255,255,0.2);
+				border-radius: 10px;
+			}
+			
+			.icon {
+				padding-top: 30px !important;
+				display: table-cell;
+				
+				p {
+					width: 90%;
+					font-size: 18px;
+					padding: 25px;
+				}
+				
+				img {
+					width: 150px !important;
+				}
+
+			}
+		}
+		
+		.footer {
+			ul {
+				li {
+					margin: 5px 70px 5px 70px;
+				}
+				
+				li, a {
+					color: white;
+				}
+			}
+			
+			.social-nets {
+				a {
+					margin: 0 15px 0 15px;
+				}
+				.icon {
+					width: 40px;
+					height: 40px;
+				}
+			}
+		}
+
+	}
+}
+
+.lopo {
+	background-color: rgba(1,1,1,0.9);
+	width: 100% !important;
+	height: 100% !important;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 9999999 !important;
+	
+	.login-box {
+		text-align: center;
+		width: 40%;
+		margin-top: 15%;
+		
+		input[type="submit"] {
+			padding: 10px;
+			font-size: 18px;
+			border-radius: 5px;
+			border: 1px solid #D4EDFF;
+			color: #666;
+		}
+
+		input[type="email"], input[type="text"], input[type="password"] {
+			width: 300px;
+			padding: 20px;
+			font-size: 18px;
+			border-radius: 5px;
+			border: 1px solid #D4EDFF;
+			color: #666;
+			margin: 10px;
+		}
+	}
+}

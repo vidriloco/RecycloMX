@@ -1,0 +1,103 @@
+.offs {
+	.title {
+		font-size: 20px;
+	}
+	
+	legend {
+		margin-bottom: 50px;
+	}
+	
+	.map img { 
+	  max-width: none;
+	}
+}
+
+
+
+.navbar-brand {
+	padding: 2px !important;
+	margin-right: 30px !important;
+}
+
+.activity-list {
+	
+	.empty {
+		margin: 100px 0 100px 0;
+		p {
+			margin: 0 !important;
+			font-size: 18px !important;
+		}
+	}
+	
+	.offer-activity {
+		margin-bottom: 10px !important;
+		font-size: 15px;
+		
+		.action-links {
+			margin: 0px;
+			margin-right: 20px;
+			text-align: right;
+			a {
+				color: #B0B0B0;
+			}
+		}
+    
+    .panel-heading {
+      padding-bottom: 3px !important;
+    }
+		
+		.panel-title {
+			vertical-align: middle !important;
+			line-height: 25px !important;
+			font-size: 18px;
+		}
+    
+    .well {
+      margin-top: 15px !important;
+      margin-bottom: 0px !important;
+    }
+    
+    .pick-up-dates {
+      font-size: 13px;
+      margin: 0px !important;
+      
+      ul {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      .bad {
+        color: #DC1F15;
+      }
+    }
+	}
+	
+	.offer-interest {
+		font-weight: bold;
+		color: #9C9C9C;
+		font-size: 15px;
+		.left {
+			margin-left: 10px;
+		}
+		
+		.right {
+			margin-right: 10px;
+		}
+	}
+}
+
+.collect-panel {
+  .collecting-date select {
+    width: 100px !important;
+  }
+}
+
+.offer-for-picker {
+  .actions {
+    margin-top: 20px !important;
+  }
+	.details {
+		margin-top: 10px;
+		font-size: 17px;
+	}
+}

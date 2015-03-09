@@ -1,0 +1,98 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,800);
+
+html, body {
+	width: 100%;
+  height: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', sans-serif;
+	background-color: white;
+}
+
+a, a:hover {
+	text-decoration: none !important;
+}
+
+ul {
+	margin: 0px !important;
+	padding: 0px !important;
+	list-style: none;
+	
+	li {
+		display: inline-block;
+		margin-right: 10px;
+	}
+}
+
+.hidden {
+	display: none;
+}
+
+.centered {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.centered-in {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.emph {
+	font-weight: bold;
+}
+
+.emph-light {
+  padding-left: 20px !important;
+	color: #A5A5A5;
+}
+
+.map {
+	width: 100% !important;
+	height: 300px !important;
+}
+
+.upper {
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: 800;
+	margin-right: 1px;
+}
+
+h6 {
+  font-size: 17px !important;
+}
+
+.separator {
+	opacity: 0.8;
+	height: 5px !important;
+	width: 100% !important;
+	background-color: #63616F !important;
+}
+
+.separator-fierro {
+	background-color: #63616F !important;
+}
+
+// Green
+.separator-glass {
+	background-color: #19E886 !important;
+}
+
+// Red
+.separator-pet, .badge-danger {
+	background-color: #D60009 !important;
+}
+
+// Blue
+.separator-paper {
+	background-color: #0063C7 !important;
+}
+
+// Yellow
+.panel-metal .panel-heading {
+	background-color: #E1B300 !important;
+}

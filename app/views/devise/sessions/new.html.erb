@@ -1,0 +1,38 @@
+<div class="container login">
+	<div class="row">
+		
+		<div class="col-lg-6 col-lg-offset-3">
+			<%= render 'shared/messages' %>
+			<div class="well bs-component">
+				<h3 class="title">Inicia sesión</h3>
+				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+					<div class="form-group">
+					  <div class="col-lg-10 col-lg-offset-1">
+							<%= f.email_field :email, placeholder: "Tu e-mail", autofocus: true, hide_label: true, class: 'form-control' %> 
+						</div>
+					</div>
+					<br/><br/>
+					<div class="form-group">
+					  <div class="col-lg-10 col-lg-offset-1">
+							<%= f.password_field :password, placeholder: "Tu contraseña", hide_label: true, class: 'form-control' %> 
+						</div>
+					</div>
+					<br/><br/>
+				  <div class="row">
+						<div class="col-lg-12 centered"><%= f.submit "Entrar" %></div>
+					</div>
+				<% end %>
+				
+			</div>
+			
+			<div class="row action-links">
+				<div class="col-lg-6 centered">
+					<a href="<%= new_registration_path(resource_name) %>"><b>¿No tienes cuenta?</b> Registrate</a>
+				</div>
+				<div class="col-lg-6 centered">
+					<%= link_to "¿Olvidaste tu contraseña?", new_password_path(resource_name) %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

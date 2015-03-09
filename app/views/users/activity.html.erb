@@ -1,0 +1,44 @@
+<div id="activity" class="activity-list">
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<%= render 'shared/messages' %>
+			<h4 class="centered">Hola <%= current_user.full_name %>!</h4>
+			<h3 class="centered">Tu actividad reciente</h3>
+      
+			<br/>
+      
+      <% if @user.unpublished_offers? %>
+        <div class="list-group groupie-dismiss">
+          <a href="javascript:void(0)" class="list-group-item">
+            <button type="button" class="dismisser close" data-dismiss="groupie">×</button>
+            <h4 class="list-group-item-heading">
+              <i class="glyphicon glyphicon-info-sign"></i> Tienes algunos reciclables sin publicar
+            </h4>
+            <p class="list-group-item-text">Para publicar un reciclable, asegúrate de que tenga <b>al menos una</b> fecha de recolección y después haz click en <b>Publicar</b></p>
+          </a>
+        </div>
+        
+      <% end %>
+      
+      <div class="row">
+        <div class="pull-right">
+          <ul class="nav nav-pills">
+            <li id="published-button" class="publishing-button">
+              <a href="#/published">Reciclables publicados</a>
+            </li>
+            <li id="unpublished-button" class="publishing-button">
+              <a href="#/unpublished">Reciclables sin publicar</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <br/>
+      
+			<% if @user.is_a_giver? %>
+				<%= render partial: 'users/activity/giver', locals: { offers: @user.offers }  %>
+			<% elsif @user.is_a_picker? %>
+				<%= render partial: 'users/activity/picker', locals: {  }  %>
+			<% end %>
+		</div>
+	</div>
+</div>
