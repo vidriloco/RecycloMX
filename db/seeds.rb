@@ -43,7 +43,7 @@ end
     :user_id => @d1.id
 })
 @o1.user_id = @d1.id
-@o1.appointments << [Appointment.new(meeting_time: DateTime.now+3.days, notes: "A partir de esta hora hasta las 10 PM")]
+#@o1.appointments << [Appointment.new(meeting_time: DateTime.now+3.days, notes: "A partir de esta hora hasta las 10 PM")]
 
 uploader = OfferImageUploader.new(@o1, :offer_image)
 File.open(File.open(Rails.root.join(["public", "sample_images", "glass.jpg"].join("/")))) do |f|
@@ -69,7 +69,7 @@ end
     :user_id => @d2.id
 })
 @o2.user_id = @d2.id
-@o2.appointments << [Appointment.new(meeting_time: DateTime.now+2.days-8.hours)]
+#@o2.appointments << [Appointment.new(meeting_time: DateTime.now+2.days-8.hours)]
 
 uploader = OfferImageUploader.new(@o2, :offer_image)
 File.open(File.open(Rails.root.join(["public", "sample_images", "paper.jpg"].join("/")))) do |f|
@@ -91,7 +91,7 @@ end
 
 @o3.location = @d2.location
 @o3.user_id = @d2.id
-@o3.appointments << [Appointment.new(meeting_time: DateTime.now+12.days-3.hours)]
+#@o3.appointments << [Appointment.new(meeting_time: DateTime.now+12.days-3.hours)]
 
 uploader = OfferImageUploader.new(@o3, :offer_image)
 File.open(File.open(Rails.root.join(["public", "sample_images", "latas.jpg"].join("/")))) do |f|

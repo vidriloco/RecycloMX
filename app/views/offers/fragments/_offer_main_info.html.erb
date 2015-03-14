@@ -1,0 +1,68 @@
+<p>
+  <ul class="nav nav-pills">
+    <% if current_user == offer.user %>
+      <li class="active"><a href="<%= user_activity_path %>">← Ir al dashboard</a></li>
+    <% else %>
+      <li class="active"><%= link_to '← Atrás', :back %></li>
+    <% end %>
+    <li class="pull-right">
+      <% if offer.is_available? %>
+        <a href="#" class="btn btn-primary disabled">Disponible</a>
+      <% else %>
+        <a href="#" class="btn btn-info disabled">Cerrado</a>
+      <% end %>
+    </li>
+  </ul>
+</p>
+
+<% if !offer.is_available? %>
+  <% if current_user_is_a_picker_for(offer) %>
+  <div class="alert alert-dismissible alert-info">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Muy bien!</strong> Tu </a> propuesta fué seleccionada, ahora solo tienes que pasar a recoger los reciclables.
+  </div>
+  <% elsif current_user_is_a_giver_of(offer) %>
+  <div class="alert alert-dismissible alert-info">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Muy bien!</strong> <a href="#/proposals/<%= offer.selected_proposal.id %>" class="alert-link">Esta fué</a> la propuesta que aceptaste, espera al recolector bajo los términos que hayan acordado.
+  </div>
+  <% end %>
+<% end %>
+<div class="panel panel-default">
+  <% if offer.is_available? %>
+    <div class="progress progress-striped active">
+      <div class="progress-bar progress-bar-primary" style="width: 100%;"></div>
+    </div>
+  <% else %>
+    <div class="progress">
+      <div class="progress-bar progress-bar-info" style="width: 100%;"></div>
+    </div>
+  <% end %>
+  
+  <div class="panel-body">
+    <h4 class="centered"><%= humanized_title_for offer %></h4>
+    <div class="well centered">
+      <% if offer.details.blank? %>
+        <%= offer.user == current_user ? "No has escrito ningún detalle" : "El donador no dió detalles" %>
+      <% else %>
+        <%= offer.details %>
+      <% end %>
+    </div>
+    
+    <div class="col-lg-10 col-lg-offset-1 centered">
+      <% unless offer.offer_image.url.nil? %>
+        <%= image_tag(offer.offer_image.url, class: 'img-thumbnail')%>
+      <% else %>
+        <%= image_tag('empty-pic.png', class: 'img-thumbnail', style: 'opacity: 0.4')%>
+      <% end %>
+	  </div>
+    
+    <div class="col-lg-10 col-lg-offset-1 centered">
+      <br>
+      <div class="row">
+        <p>Publicado hace <b><%= distance_of_time_in_words_to_now(offer.updated_at)%></b></p>
+      </div>
+    </div>
+    
+  </div>
+</div>

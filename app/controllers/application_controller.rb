@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
         Offer.assign_user(session[:pending_offer], current_user)
         session[:pending_offer] = nil
       end
-      user_activity_path(current_user.id)
+      user_activity_path
     end
   end
   

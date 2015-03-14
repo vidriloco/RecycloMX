@@ -1,0 +1,64 @@
+.messages-list {
+  margin-top: 70px !important;
+  
+  p {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  
+  .sub-messages {
+    margin: 5px 0px 0px 0px !important;
+    .list-group-item {
+      margin-right: 0px !important;
+      padding-right: 0px !important;
+    }
+  }
+  
+  .reply {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #FCFCFC;
+    border: 1px solid #E3E3E3;
+    
+    #message_body {
+      width: 100%;
+    }
+  }
+
+  .text-avatar {
+    .label {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    
+    .time {
+      font-size: 13px;
+      font-weight: 100;
+      margin-right: 10px;
+    }
+    
+    margin: 10px !important;
+  }
+  
+  .grey {
+    background-color: #F7F7F7;
+  }
+  
+  .blue {
+    background-color: #E9F8FF;
+  }
+  
+  h5 {
+    font-size: 18px;
+  }
+  
+  .proposal {
+    .conversation {
+      display: none;
+    }
+    
+    .proposal-binaries {
+      margin: 15px 0 15px 0 !important;
+    }
+  }
+}

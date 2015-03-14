@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
   has_one :location
   has_many :offers
   has_many :deposits
+  has_many :proposals
+  has_many :messages, through: :proposals
+    
+  def offers_through_proposals
+    proposals.includes(:offer).map(&:offer)
+  end
   
   def self.roles
     { superuser: 0, picker: 1, giver: 2}
@@ -70,7 +76,7 @@ class User < ActiveRecord::Base
     offers.count(published: false) > 0
   end
   
-  # Used for the naming association on rails_admin
+  # Used for the naming association on rails_adminh
   def title
     email
   end

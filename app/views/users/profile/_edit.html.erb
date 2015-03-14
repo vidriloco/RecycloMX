@@ -32,14 +32,15 @@
 		<div class="well bs-component">
 			<legend>Mi perfil</legend>
       
-      <% unless @user.avatar.url.nil? %>
-        <div class="row centered">
-          <div class="col-lg-4 col-lg-offset-4">
+      <div class="row centered">
+        <div class="col-lg-4 col-lg-offset-4">
+          <% unless @user.avatar.url.nil? %>
             <%= image_tag(@user.avatar.url, class: 'img-circle img-responsive')%>
-          </div>
+          <% else %>
+            <%= image_tag('empty-user-pic.png', class: 'img-circle img-responsive', style: 'opacity: 0.4') %>
+          <% end %>
         </div>
-        <br/><br/>
-      <% end %>
+      </div>
       
 			<div class="row form-group">
 			  <div class="col-lg-10 col-lg-offset-1">

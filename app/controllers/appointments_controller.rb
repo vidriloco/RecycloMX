@@ -15,9 +15,9 @@ class AppointmentsController < ApplicationController
     end
     
     if @appointment.offer.published
-      redirect_to user_activity_path(current_user.id).concat("#/published/#{@appointment.offer.id}/collect")
+      redirect_to user_activity_path.concat("#/published/#{@appointment.offer.id}/collect")
     else
-      redirect_to user_activity_path(current_user.id).concat("#/unpublished/#{@appointment.offer.id}/collect")
+      redirect_to user_activity_path.concat("#/unpublished/#{@appointment.offer.id}/collect")
     end
   end
   
@@ -32,9 +32,9 @@ class AppointmentsController < ApplicationController
       end
       
       if offer.published
-        redirect_to user_activity_path(current_user.id).concat("#/published/#{offer.id}/collect")
+        redirect_to user_activity_path.concat("#/published/#{offer.id}/collect")
       else
-        redirect_to user_activity_path(current_user.id).concat("#/unpublished/#{offer.id}/collect")
+        redirect_to user_activity_path.concat("#/unpublished/#{offer.id}/collect")
       end
     else
       flash[:error] = "No fué posible eliminar la fecha de recolección."

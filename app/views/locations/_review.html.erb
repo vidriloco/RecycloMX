@@ -1,19 +1,14 @@
 <%= f.fields_for :location do |l| %>
-	<div id="offer-location-select" class="form-group">
-	  <label for="mapLocation" class="col-lg-3 control-label">¿Dónde recogerlos?</label>
-	  <div class="col-lg-9">
-	    <div class="map non-editable" id="map"></div>
-	    <span class="help-block"></span>
-	  </div>
-	</div>
-	<%= hidden_field_tag 'offer[location[coordinates_lat]]', location.lat %>
-	<%= hidden_field_tag 'offer[location[coordinates_lon]]', location.lon %>
-	<br/><br/>
-	<div class="form-group">
-	  <label for="inputAddress" class="col-lg-3 control-label">¿Cuál es tu dirección?</label>
-	  <div class="col-lg-9">
-			<%= text_field_tag :address, location.address, disabled: true, hide_label: true, class: 'form-control' %> 
-      <span class="help-block">Esta es la ubicación que verá el recolector que selecciones para recoger tus reciclables. <br> Si lo deseas, puedes cambiarla en tu <%= link_to 'perfil', user_profile_path(current_user.id) %>.</span>
-		</div>
-	</div>
+  <div id="offer-location-select">
+    <div class="map non-editable" id="map"></div>
+  	<%= hidden_field_tag 'offer[location[coordinates_lat]]', location.lat %>
+  	<%= hidden_field_tag 'offer[location[coordinates_lon]]', location.lon %>
+  	<br/>
+  	<div class="row">
+  	  <div class="col-lg-10 col-lg-offset-1 centered">
+  			<%= text_area_tag :address, location.address, placeholder: "Tu ubicación", disabled: true, rows: 3, cols: 43 %> 
+        <span class="help-block">Esta es la ubicación que verá el recolector que selecciones para recoger tus reciclables. <br> Si lo deseas, puedes cambiarla en tu <%= link_to 'perfil', user_profile_path(current_user.id) %>.</span>
+  		</div>
+  	</div>
+  </div>
 <% end %>

@@ -7,7 +7,7 @@ Recyclo::Application.routes.draw do
   
   root 'welcome#index'
 
-  get 'profiles/:id/activity' => 'users#activity', as: 'user_activity'
+  get 'activity' => 'dashboard#index', as: 'user_activity'
   get 'profiles/:id' => 'users#show', as: 'user_profile'
   # You can have the root of your site routed with "root"
   #root 'map#index'
@@ -20,6 +20,8 @@ Recyclo::Application.routes.draw do
   resources :users
   resources :deposits
   resources :appointments
+  resources :messages
+  resources :proposals
   
   get 'admin' => 'admin#index'
   # Example of regular route:

@@ -1,15 +1,10 @@
-.offs {
-	.title {
-		font-size: 20px;
-	}
-	
-	legend {
-		margin-bottom: 50px;
-	}
-	
-	.map img { 
-	  max-width: none;
-	}
+#offers-list {
+  .modal-backdrop {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    pointer-events:none !important;
+  }
 }
 
 
@@ -56,20 +51,6 @@
       margin-top: 15px !important;
       margin-bottom: 0px !important;
     }
-    
-    .pick-up-dates {
-      font-size: 13px;
-      margin: 0px !important;
-      
-      ul {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-      
-      .bad {
-        color: #DC1F15;
-      }
-    }
 	}
 	
 	.offer-interest {
@@ -93,11 +74,53 @@
 }
 
 .offer-for-picker {
-  .actions {
+  
+  .actions, .collect {
     margin-top: 20px !important;
   }
+  
+  .collect {
+    display: none;
+  }
+  
 	.details {
 		margin-top: 10px;
 		font-size: 17px;
 	}
+}
+
+.offer {
+  
+  .alert-link {
+    text-decoration: underline !important;
+    font-weight: normal !important;
+  }
+  
+  .show {
+    li {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .address {
+      margin: 10px;
+    }
+  }
+  
+  .date {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .new {
+    .hoverable:hover {
+      background-color: #CBFFC8;
+    }
+    
+    .hoverable {
+      .content-editable {
+        display: none;
+      }
+    }
+  }
 }

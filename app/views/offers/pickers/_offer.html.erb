@@ -1,0 +1,58 @@
+<div id="offer-<%= offer.id %>" class="offer-for-picker offer-is-<%= offer.is_available? ? 'available' : 'not-available' %>">	
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title centered"><%= humanized_title_for(offer) %></h5>
+      </div>
+      <div class="modal-body">
+        <div class="row col-lg-10 col-lg-offset-1 centered">
+          <p class="details"><%= offer.details.html_safe %></p>
+        </div>          
+        <% unless offer.offer_image.url.nil? %>
+				  <div class="col-lg-10 col-lg-offset-1 centered">
+            <%= image_tag(offer.offer_image.url, class: 'img-thumbnail')%>
+  			  </div>
+        <% end %>      
+			</div>
+      <div class="modal-footer">  
+        <div class="col-lg-8 col-lg-offset-2 centered">        
+          <% if offer.proposal_from?(current_user, :accepted) %>
+            <br/>
+            <div class="progress">
+              <div class="progress-bar progress-bar-info" style="width: 100%"></div>
+            </div>
+            <div class="follow-up">
+              <p class="lead">Enhorabuena! Ya cerraste el trato con este donador</p>
+              <p>Pero sigue recolectando más reciclables cerca de ti!</p>
+            </div>
+          <% elsif offer.proposal_from?(current_user, :rejected) %>
+            <br/>
+            <div class="progress">
+              <div class="progress-bar progress-bar-danger" style="width: 100%"></div>
+            </div>
+            <div class="follow-up">
+              <p class="lead">No lograste cerrar el trato con este donador</p>
+              <p>Pero puedes revisar otras ofertas de reciclables cercanas :)</p>
+            </div>
+          <% elsif offer.proposal_from?(current_user, :available) %>
+            <br/>
+            <div class="progress progress-striped active">
+              <div class="progress-bar" style="width: 100%"></div>
+            </div>
+            <div class="follow-up">
+              <p class="lead">Ya iniciaste contacto para recolectar este reciclable</p>
+              <p>Puedes revisar si el donador aceptó <%= link_to 'aquí', offer_path(offer) %></p>
+            </div>
+          <% else %>
+            <div class="actions">
+              <%= link_to 'Recolectar', "#/locations/#{location_id}/collect/#{offer.id}", class: 'btn btn-primary' %>
+            </div>
+            <div class="collect">
+              <%= render partial: 'messages/collectors/new', locals: {offer: offer, location_id: location_id} %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

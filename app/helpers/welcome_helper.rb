@@ -1,4 +1,4 @@
-#encode: utf-8
+#encoding: utf-8
 module WelcomeHelper
   
   def localized_material(kind)

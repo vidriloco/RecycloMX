@@ -1,0 +1,27 @@
+<a href="#/proposals/<%= proposal.id %>" class="list-group-item header-proposal" data-url="#/proposals/<%= proposal.id %>">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="centered">
+        <% if proposal.user.avatar.nil? || proposal.user.avatar.url.nil? %>
+          <%= image_tag('empty-user-pic.png', size: '70x70', class: 'img-circle', style: 'opacity: 0.4') %>
+        <% else %>
+          <%= image_tag(proposal.user.avatar.url, size: '70x70', class: 'img-circle') %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <h4 class="list-group-item-heading"><%= proposal.user.full_name %></h4>
+      <p class="list-group-item-text">
+        Último mensaje hace <%= distance_of_time_in_words_to_now(proposal.messages.last.created_at) %>
+      </p>
+      <p>
+        <b><%= humanized_message_count_for(proposal.messages.count) %></b>
+        <% if proposal.is_accepted? %>
+          &nbsp;&nbsp;<span class="label label-info">Aceptada</span>
+        <% elsif proposal.is_rejected? %>
+          &nbsp;&nbsp;<span class="label label-danger">Rechazada</span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</a>

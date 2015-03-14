@@ -1,71 +1,86 @@
-<div id="offers" class="offs">
-	<div class="row">
-		<div class="col-lg-10 col-lg-offset-1">
-			<% unless user_signed_in? %>
-				<div class="alert alert-dismissible alert-info">
-					<button class="close" data-dismiss="alert" type="button">×</button>
-					<strong>Bienvenid@ a recyclo!</strong>
-					Estás a unos pasos de probar la primera versión de una idea que revolucionará nuestras ciudades.
-				</div>
-			<% end %>
-			<div class="well bs-component">
-				<%= form_for(@offer, class: 'form-horizontal', html: {multipart: true}) do |f| %>
-
-          <fieldset>
-            <legend>Publica tus reciclables</legend>
-            <div class="row form-group">
-              <label for="inputKind" class="col-lg-3 control-label">¿De que tipo son?</label>
-              <div class="col-lg-9">
-								<%= f.select :kind, options_for_select(Offer.materials.invert.to_a), {}, 
-								{class: 'form-control'} %>
+<div id="new-offer" class="offer">
+	<div class="row new">
+		<div class="col-lg-6 col-lg-offset-3">
+      <%= render 'shared/messages' %>
+      <%= form_for(@offer, class: 'form-horizontal', html: {multipart: true}) do |f| %>  
+        <div class="list-group">
+          <a href="javascript:void(0)" class="list-group-item">
+            <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-info-sign"></i> Recuerda</h4>
+            <p class="list-group-item-text">
+              Tus reciclables deberán estar limpios y secos al momento de que el recolector pase por ellos :)
+            </p>
+          </a>
+        </div>
+        
+        <p>
+          <ul class="nav nav-pills">
+            <li class="active"><%= link_to '← Atrás', :back %></li>
+          </ul>
+        </p>
+        <div class="panel panel-default">
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+          </div>
+          <div class="panel-body">
+            <h4 class="centered">Detalles de tu <i>nuevo</i> reciclable</h4>
+            <br/>
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2">
+                <div class="row">
+                  <div class="col-lg-4 centered">
+    								<%= f.select :kind, options_for_select(Offer.materials.invert.to_a), {}, 
+    								{class: 'form-control'} %>
+                  </div>
+                  <div class="col-lg-4 centered">
+                    <%= f.number_field :quantity, placeholder: "Cantidad", required: true, hide_label: true, class: 'form-control' %>
+                  </div>
+                  <div class="col-lg-4 centered">
+    								<%= f.select :quantifiable_type, options_for_select(humanized_offer_quantifiables), 
+                    {}, {class: 'form-control'} %>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row form-group">
-              <label for="inputQuantity" class="col-lg-3 control-label">¿Cuántos son?</label>
-              <div class="col-lg-7">
-								<%= f.number_field :quantity, placeholder: "Cantidad", required: true, hide_label: true, class: 'form-control' %>
-							</div>
-              <div class="col-lg-2">
-                <%= f.select :quantifiable_type, options_for_select(humanized_offer_quantifiables), {}, {class: 'form-control'} %>
-              </div>
-            </div>
-            <div class="row form-group">
-              <label for="textDetails" class="col-lg-3 control-label">¿Algún detalle extra?</label>
-              <div class="col-lg-9">
-                <%= f.text_area :details, hide_label: true, class: 'form-control' %>
-                <span class="help-block">Escribe aquí detalles que puedan ser de utilidad para el recolector.</span>
-              </div>
-            </div>
-						
-						<% if user_signed_in? && !current_user.location.nil? %>
-							<%= render partial: 'locations/review', locals: { f: f, location: current_user.location} %>
-						<% else %>
-            	<%= render partial: 'locations/new', locals: {f: f} %>
-						<% end %>
-            
-            <div class="row form-group">
-
-            </div>
-            
-            <div class="row form-group">
-              <label for="textOfferPic" class="col-lg-3 control-label">Foto del reciclable</label>
-              <div class="col-lg-9">
-                <%= image_tag(@user.offer_image_url) if @offer.offer_image? %>
+            <br/>
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 centered">
+                <%= image_tag('empty-pic.png', class: 'img-thumbnail', style: 'opacity: 0.4')%>
+                <br/><br/>
                 <%= f.file_field :offer_image %>
                 <%= f.hidden_field :offer_image_cache %>
                 <span class="help-block">Si tienes una foto a la mano, puedes añadirla para captar el interés de recolectores cercanos.</span>
               </div>
-              <div class="col-lg-10 col-lg-offset-2">
-								<div class="pull-right">
-									<br/>
-									<%= link_to 'Cancelar', :back, class: "btn btn-default" %>
-									<%= f.submit 'Publicar', class: 'btn btn-primary'%>
-								</div>
+            </div>
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 centered">
+                <%= f.text_area :details, placeholder: "Detalles adicionales", required: true, hide_label: true, class: 'form-control' %>
+                <span class="help-block">Escribe aquí detalles adicionales como por ejemplo, los <b>horarios</b> en los que te sea mejor para que alguien pase a recoger los residuos.</span>
               </div>
             </div>
-          </fieldset>
-				<% end %>
-			</div>
-		</div>
-	</div>
+          </div>
+        </div>
+        <div class="row">
+          <p class="lead centered">La ubicación para recoger este reciclable será:</p>
+        </div>
+        <div class="panel panel-default">
+          <br/>
+          <div class="row">
+            <p class="text-warning centered">
+              Tu ubicación <b>exacta</b> será revelada <b>solamente</b> al recolector que tu elijas
+            </p>
+          </div>
+          <div class="panel-body">
+  					<% if user_signed_in? && !current_user.location.nil? %>
+  						<%= render partial: 'locations/review', locals: { f: f, location: current_user.location} %>
+  					<% else %>
+            	<%= render partial: 'locations/new', locals: {f: f} %>
+  					<% end %>
+          </div>
+        </div>
+        <div class="row centered">
+					<%= f.submit 'Publicar', class: 'btn btn-primary'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

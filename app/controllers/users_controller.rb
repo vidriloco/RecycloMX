@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
-  layout 'profile'
   
-  before_filter :authenticate_user!, only: [:activity, :update]
+  before_filter :authenticate_user!, only: [:update]
   before_filter :find_user, only: [:show, :update]
-  before_filter :authenticate_user_is_owner, only: [:activity, :update]
-  
-  
-  def activity
-    @user = current_user
-  end
+  before_filter :authenticate_user_is_owner, only: [:update]
   
   def show
   end

@@ -1,0 +1,22 @@
+<div class="row">
+  <p class="lead centered">
+    <% if offer.user == current_user %>
+      El recolector vendrá a esta ubicación para recolectar los reciclables
+    <% else %>
+      Aquí es donde hay que recoger el reciclable
+    <% end %>
+  </p>
+</div>
+<div class="panel panel-default">
+  <div id="offer-details-show" class="panel-body">
+    <div class="row">
+      <p class="text-warning centered">
+        Tu ubicación <b>exacta</b> será revelada <b>solamente</b> al recolector que tu elijas
+      </p>
+    </div>
+  	<%= hidden_field_tag 'offer[location[coordinates_lat]]', offer.location.lat %>
+  	<%= hidden_field_tag 'offer[location[coordinates_lon]]', offer.location.lon %>
+    <div id="map" class="map initial-location-set non-editable"></div>
+    <div class="address centered"><%= offer.location.address %></div>
+  </div>
+</div>

@@ -1,9 +1,13 @@
 #encoding: utf-8
 class Offer < ActiveRecord::Base
   mount_uploader :offer_image, OfferImageUploader
-  has_many :appointments
+
+  has_many :proposals
+  has_many :messages, through: :proposals
   belongs_to :user
   belongs_to :location
+  
+  validates :kind, :quantity, :details, :location, presence: true
   
   def self.materials 
     {1 => "Plásticos", 2 => "Vidrio", 3 => "Papel y cartón", 4 => "Metal", 5 => "Fierro viejo"}
@@ -15,6 +19,10 @@ class Offer < ActiveRecord::Base
   
   def self.quantifiable_type_sym
     { 1 => :pieces, 2 => :kgs }
+  end
+  
+  def self.all_visible_to(current_user)
+    Offer.where('offers.user_id != ?', current_user.id).includes(:proposals, :location).group_by(&:location_string)    
   end
   
   def self.new_with(params, current_user)
@@ -47,6 +55,34 @@ class Offer < ActiveRecord::Base
   
   def appointments_count_reached_max?
     appointments.size >= 3
+  end
+  
+  def selected_proposal
+    proposals.where('status = ?', Proposal.status_for[:accepted]).first
+  end
+  
+  def is_available?
+    selected_proposal.nil?
+  end
+  
+  def proposal_from?(from_user, status)
+    !proposals.where(user_id: from_user.id, status: Proposal.status_for[status]).first.nil?
+  end
+  
+  def has_proposal_from?(from_user)
+    !proposal_issued_by(from_user).nil?
+  end
+  
+  def proposal_issued_by(from_user)
+    proposals.where(user_id: from_user.id).first
+  end
+  
+  def proposals_in_context_of(user_context)
+    if user_context.is_a_picker?
+      proposals.where(user_id: user_context.id)
+    else
+      proposals
+    end
   end
   
   def location_string

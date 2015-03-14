@@ -1,69 +1,33 @@
-<div id="offer-<%= offer.id %>" class="offer <%= published_status_for(offer) %>">
-  <div class="offer-activity panel panel-default">
-    <div class="panel-heading">
-  		<div class="row">
-  			<div class="col-lg-5">
-  				<h3 class="panel-title"><%= humanized_title_for(offer) %></h3>
-          <p class="pick-up-dates">
-            <% if offer.has_appointments? %>
-              <span class="good"><%= humanized_offer_appointments_count_for(offer) %></span>
-            <% else %>
-              <span class="bad">No has asignado horarios de recolección</span>
-            <% end %>
-          </p>
-  			</div>
-  			<div class="col-lg-7">
-          <% if current_user.id == offer.user_id %>	
-          <ul class="status right">
-  					<li>
-              <li class="collect-panel-show"><%= link_to "<i class='glyphicon glyphicon-edit'></i> Horarios".html_safe, "#/#{published_status_for(offer)}/#{offer.id}/collect", class: 'btn btn-success btn-sm' %></li>
-              <li class="collect-panel-hide"><%= link_to "<i class='glyphicon glyphicon-edit'></i> Horarios".html_safe, "#/#{published_status_for(offer)}", class: 'btn btn-success btn-sm' %></li>
-    					<li><%= link_to "<i class='glyphicon glyphicon-remove'></i> Eliminar".html_safe, offer, 
-    					method: :delete, confirm: "¿Deseas eliminar este reciclable?", class: 'btn btn-danger btn-sm' %></li>
-              <% if offer.published %>
-                <%= link_to "<i class='glyphicon glyphicon-eye-close'></i> Despublicar".html_safe, toggle_offer_visibility_path(offer), method: :put, class: 'btn btn-info btn-sm' %>
-              <% else %>
-                <%= link_to "<i class='glyphicon glyphicon-eye-open'></i> Publicar".html_safe, toggle_offer_visibility_path(offer), method: :put, class: 'btn btn-primary btn-sm' %>
-              <% end %>
-            </li>
-          </ul>
+<div id="offer-<%= offer.id %>" class="offer list-group">
+  <a href="<%= offer_path(offer) %>" class="list-group-item">
+  	<div class="row">
+    	<div class="col-lg-6">
+        <h4 class="list-group-item-heading"><%= humanized_title_for(offer) %></h4>
+        <% if offer.user == current_user %>
+    		  <p class="date">lo publicaste hace <b><%= distance_of_time_in_words_to_now(offer.created_at) %></b></p>
+        <% else %>
+    		  <p class="date">publicado por <b><%= offer.user.full_name %></b> hace <b><%= distance_of_time_in_words_to_now(offer.created_at) %></b></p>
+        <% end %>
+    	</div>
+    	<div class="col-lg-6">
+    		<h5 class="right">
+          <% if offer.is_available? %>
+            <span class="label label-warning"><%= humanized_message_count_for(offer.messages.count) %></span>
+            <span class="label label-primary">Disponible</span>
+          <% else %>
+            <span class="label label-default"><%= humanized_message_count_for(offer.messages.count) %></span>
+            <span class="label label-info">Cerrada</span>
           <% end %>
-  			</div>
-  		</div>
+        </h5>
+    	</div>
     </div>
-  	<div class="separator"></div>
-    <div class="panel-body">
-      <p class="centered"><%= offer.details %></p>
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          <%= image_tag(offer.offer_image.url, class: 'img-thumbnail') unless offer.offer_image.url.blank? %>
-        </div>
-      </div>
+  </a>
+  <% if current_user.is_a_picker? %>
+    <div class="col-lg-12">
+      <p class="right">
+        Le contactaste por primera vez hace <b><%= distance_of_time_in_words_to_now(offer.proposal_issued_by(current_user).created_at) %></b>
+      </p>
     </div>
-  </div>
-  <div class="collect-panel panel panel-success hidden">
-    <div class="panel-heading right">
-    </div>
-    <div class="panel-body">
-      <legend>
-        <i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;¿En que horarios se puede recolectar este reciclable?
-      </legend>
-      <%= render offer.appointments %>
-      
-      <% unless offer.appointments_count_reached_max? %>
-        <p class="centered">Puedes añadir hasta <b>3</b> fechas de recolección</p>
-        <%= render partial: 'appointments/form', locals: { offer: offer } %>
-      <% else %>
-        <p class="centered">Si necesitas cambiar alguna de las fechas puedes eliminarla y añadir una nueva.</p>
-      <% end %>
-    </div>
-  </div>
-  <div class="row offer-interest">
-  	<div class="col-lg-6">
-  		<p class="left">Sin respuestas aún</p>
-  	</div>
-  	<div class="col-lg-6">
-  		<p class="right"><%= offer.created_at.to_s(:short) %></p>
-  	</div>
-  </div>
+    <br/>
+  <% end %>
 </div>

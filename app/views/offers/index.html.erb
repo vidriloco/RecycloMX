@@ -13,7 +13,11 @@
             <div class="modal-body">
               <div class="row col-lg-10 col-lg-offset-1">
                 <div class="col-lg-3 centered">
-                  <%= image_tag(offers.first.user.avatar.url, size: '70x70', class: 'img-circle') %>
+                  <% if offers.first.user.avatar.nil? || offers.first.user.avatar.url.nil? %>
+                    <%= image_tag('empty-user-pic.png', size: '70x70', class: 'img-circle', style: 'opacity: 0.4') %>
+                  <% else %>
+                    <%= image_tag(offers.first.user.avatar.url, size: '70x70', class: 'img-circle') %>
+                  <% end %>
                 </div>
                 <div class="col-lg-9">
                   <h5 style="margin-top: 7px"><%= offers.first.user.full_name %></h5>
@@ -24,7 +28,7 @@
             <div class="modal-footer"></div>
           </div>
         </div>
-		    <%= render partial: 'offer_for_picker', collection: offers, as: :offer %>
+		    <%= render partial: 'offers/pickers/offer', collection: offers, as: :offer, locals: {location_id: location_string.split(':')[0] } %>
       </div>
     </div>
 	<% end %>

@@ -1,0 +1,19 @@
+<div class="row">
+  <p class="lead centered">
+    <% if offer.user == current_user %>
+      El recolector podrá contactarte por estos medios
+    <% else %>
+      Contact al donante de residuos en
+    <% end %>
+  </p>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <p class="text-warning centered">
+        Estos datos de contacto serán revelados <b>solamente</b> al recolector que tu elijas
+      </p>
+    </div>
+    <div class="centered"><%= offer.user.email %></div>
+  </div>
+</div>

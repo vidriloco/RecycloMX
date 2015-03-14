@@ -16,7 +16,7 @@ $(document).ready(function() {
 		
 		// The DOM id element where the coordinates will be written and read
 		var coordinatesDOM = "#user_location";
-		if($.isDefined('#offers') && $.isDefined('#offer-location-select')) {
+		if($.isDefined('#offer-location-select') || $.isDefined('#offer-details-show')) {
 			coordinatesDOM = "#offer_location";
 		}
 		
@@ -27,8 +27,9 @@ $(document).ready(function() {
 			skipWritingAddressToDomAtStart: $('#map').hasClass('initial-location-set')
 		});
 		
-		if($('#map').hasClass('non-editable') || $('#map').hasClass('initial-location-set'))
-			map.setCoordinatesFromDom(coordinatesDOM.concat('_coordinates'), locationZoom);
+		if($('#map').hasClass('non-editable') || $('#map').hasClass('initial-location-set')) {
+			map.setCoordinatesFromDom(coordinatesDOM.concat('_coordinates'), locationZoom);      
+		}
 		else
 			map.setCoordinatesFromDom(coordinatesDOM.concat('_coordinates'), 11);
 		

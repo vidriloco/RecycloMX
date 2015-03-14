@@ -1,0 +1,6 @@
+<%= form_for(proposal, method: :put) do |p| %>
+  <%= p.hidden_field :status, value: Proposal.status_for[:available] %>
+  <p>Puedes reconsiderar tu decisión usando el botón siguiente</p>
+  <br/> 
+  <%= p.submit 'Deshacer', class: 'btn btn-danger' %>
+<% end %>

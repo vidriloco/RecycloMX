@@ -1,0 +1,17 @@
+<%= form_for(@proposal) do |p| %>
+  <div class="row">
+    <%= p.hidden_field :offer_id, value: offer.id %>
+    <%= p.hidden_field :status, value: Proposal.status_for[:available] %>
+    <%= p.hidden_field :user_id, value: current_user.id %>
+    <%= p.fields_for :messages do |m| %>
+      <%= m.text_area :body, placeholder: "Escribe un mensaje para #{offer.user.full_name}", cols: 45, rows: 3 %>
+      <%= m.hidden_field :user_id, value: current_user.id %>
+    <% end %>
+    <span class="help-block">Pregunta cualquier duda que tengas ó directamente propón una hora para pasar por los reciclables. <br/><b>Finalmente, espera la confirmación por parte del donador!</b></span>
+    <br/>
+  </div>
+  <div class="row">
+    <%= link_to 'Cancelar', "#/locations/#{location_id}", class: 'btn btn-default' %>
+    <%= p.submit 'Enviar', class: 'btn btn-primary' %>
+  </div>
+<% end %>
