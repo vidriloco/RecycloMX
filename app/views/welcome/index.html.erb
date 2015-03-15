@@ -10,4 +10,57 @@
 			<%= render partial: 'welcome/slides/slide', locals: {kind: 'PET'} %>
 	  </div>
 	</div>
+  
+  <div class="fixed-container">
+		<div class="row header">
+  		<div class="col-lg-4 col-lg-offset-4 centered">
+        <div class="row centered">
+          <div class="col-lg-8 col-lg-offset-2">
+        		<%= image_tag('logo.png', class: 'img-responsive centered-in') %>          
+          </div>
+    			<p class="slogan">Comercializa reciclables fácil y rápido con personas cerca de ti, mejorando tu ciudad</p>
+        </div>
+  		</div>
+    </div>
+    <div class="row main">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="list-group">
+          <a href="/participa/donando" class="list-group-item">
+            <div class="row">
+              <div class="col-lg-3">
+        				<%= image_tag("recyclable-metal.png", class: 'img-responsive centered-in') %>
+              </div>
+              <div class="col-lg-9 text">
+                <h4 class="list-group-item-heading">Almacena, publica y <b>dona</b> tus reciclables</h4>
+                <p class="list-group-item-text">Dale un mejor uso a tus desechos y ayuda a limpiar tu ciudad</p>
+              </div>
+            </div>
+          </a>
+          <a href="/participa/recolectando" class="list-group-item">
+            <div class="col-lg-9 right">
+              <h4 class="list-group-item-heading">Busca, recolecta y <b>vende</b> reciclabes en volúmen</h4>
+              <p class="list-group-item-text">Aprovecha tu tiempo libre y ayuda al medio ambiente</p>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+        				<%= image_tag("recyclable-metal-pay.png", class: 'img-responsive centered-in') %>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <% if false %>
+		<div class="footer centered">
+			<ul>
+				<li class="privacy text">Aviso de privacidad</li>
+				<li class="social-nets">
+					<%= link_to image_tag('twitter_icon.png', class: 'preserve icon') %> 
+					<%= link_to image_tag('facebook_icon.png', class: 'preserve icon') %>
+				</li>
+				<li class="privacy text">Conctáctanos en <i><%= mail_to('contacto@recyclo.mx') %></i></li>
+			</ul>
+		</div>
+    <% end %>
+	</div>
 </div>

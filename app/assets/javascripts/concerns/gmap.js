@@ -64,6 +64,13 @@ $.extend(ViewComponents, {
 					}
 				}
 			},
+      
+      getCurrentPosition: function(success_function, failure_function) {
+        if(navigator.geolocation)
+          navigator.geolocation.getCurrentPosition(success_function);
+        else
+          failure_function();
+      },
 			
 			eventsForMapCenterChanged: function(baseDom, callback_function) {
 				var instance = this;
@@ -139,7 +146,7 @@ $.extend(ViewComponents, {
 
 			simulatePinPoint: function(lat, lon, zoom) {
 				if(zoom != undefined) {
-					this.placeViewportAt({zoom : zoom, lat: lat, lon : lon});
+					this.placeViewportAt({"zoom" : zoom, "lat": lat, "lon" : lon});
 				}
 				// this blocks mimics what method writePointToDom does
 				this.propagateClickEvent(new google.maps.LatLng(lat, lon));

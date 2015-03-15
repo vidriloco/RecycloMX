@@ -1,5 +1,41 @@
 .lp {
 	
+  .fixed-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    width: 100% !important;
+    height: 2400px;
+		.header {
+      margin-top: 30px;			
+			.slogan {
+				padding: 10px 0 0 0;
+				vertical-align: middle;
+				font-size: 16px;
+        color: white;
+			}
+		}
+    
+    .main {
+      margin-top: 80px;
+      
+      .list-group-item, .list-group {
+        background-color: rgba(255,255,255,0) !important;
+        border: none;
+        
+        h4 {
+          margin-top: 40px;
+          color: white !important;
+        }
+      }
+      a {
+        color: white;
+        font-size: 17px;
+      }
+    }
+  }
+  
 	.access-bar {
 		position: fixed;
 		float: right;
@@ -18,20 +54,7 @@
 			color: white;
 		}
 		
-		.logo {
-			margin: 20px;
-			width: 300px !important;
-			height: 150px !important;
-		}
-		
-		.header {			
-			.title {
-				padding: 10px 0 0 0;
-				vertical-align: middle;
-				font-size: 18px;
-				width: 50%;
-			}
-		}
+
 		
 		.main-content {
 			margin: 8% auto 5% auto;
@@ -47,10 +70,14 @@
 				display: table-cell;
 				
 				p {
-					width: 90%;
+					width: 80%;
 					font-size: 18px;
-					padding: 25px;
+					padding-top: 10px;
 				}
+        
+        .small-font {
+          font-size: 14px;
+        }
 				
 				img {
 					width: 150px !important;

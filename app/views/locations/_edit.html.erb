@@ -1,19 +1,17 @@
 <%= f.fields_for :location do |l| %>
-	<div id="user-location-select" class="form-group">
-		<div class="col-lg-10 col-lg-offset-1">
+	<div id="user-location-select" class="row">
+		<div class="col-lg-10 col-lg-offset-1 centered">
 	  	<p>Selecciona la ubicación donde se han de recolectar tus reciclables</p>
 	  	<div class="map <%= location_set?(location) %>" id="map"></div>
+      <%= render 'locations/locate_me' %>
 		</div>
-	</div>
-	<%= hidden_field_tag 'user[location[coordinates_lat]]', (location.nil? ? '' : location.lat) %>
-	<%= hidden_field_tag 'user[location[coordinates_lon]]', (location.nil? ? '' : location.lon) %>
-	<br/><br/>
+  	<%= hidden_field_tag 'user[location[coordinates_lat]]', (location.nil? ? '' : location.lat) %>
+  	<%= hidden_field_tag 'user[location[coordinates_lon]]', (location.nil? ? '' : location.lon) %>
 	
-	<div class="form-group">
 	  <div class="col-lg-10 col-lg-offset-1">
 			<%= l.text_field :address, placeholder: "Tu dirección", hide_label: true, class: 'form-control', value: (location.nil? ? '' : location.address) %> 
 			<span class="help-block">Ajusta tu dirección según lo consideres necesario</span>
 		</div>
 	</div>
-	<br/><br/>
+
 <% end %>

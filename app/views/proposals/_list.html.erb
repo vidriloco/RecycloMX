@@ -6,33 +6,39 @@
   <% end %>
   <br/>
   <div class="list-group">
-    <% offer.proposals_in_context_of(current_user).each do |proposal| %>
-    <div id="proposal-<%= proposal.id %>" class="proposal">
-      <%= render partial: 'proposals/header', locals: { proposal: proposal } %>
-      <div class="conversation">
-        <ul class="list-group sub-messages">
-          <% proposal.messages.each do |message| %>
-            <% if message.user == current_user %>
-              <p class="text-avatar">
-                <span class="time">hace <%= distance_of_time_in_words_to_now(message.created_at) %></span> 
-                <span class="label label-primary">Tu dijiste</span>
-              </p>
-              <li class="list-group-item blue">
-            <% else %>
-              <p class="right text-avatar">
-                <span class="time">hace <%= distance_of_time_in_words_to_now(message.created_at) %></span>
-                <span class="label label-default"><%= message.user.full_name %> dijo</span>
-              </p>
-              <li class="list-group-item grey">
+    <% proposals = offer.proposals_in_context_of(current_user) %>
+    
+    <% if proposals.length == 0 %>
+      <p class="lead centered">Sin propuestas para mostrar</p>
+    <% else %>
+      <% proposals.each do |proposal| %>
+      <div id="proposal-<%= proposal.id %>" class="proposal">
+        <%= render partial: 'proposals/header', locals: { proposal: proposal } %>
+        <div class="conversation">
+          <ul class="list-group sub-messages">
+            <% proposal.messages.each do |message| %>
+              <% if message.user == current_user %>
+                <p class="text-avatar">
+                  <span class="time">hace <%= distance_of_time_in_words_to_now(message.created_at) %></span> 
+                  <span class="label label-primary">Tu dijiste</span>
+                </p>
+                <li class="list-group-item blue">
+              <% else %>
+                <p class="right text-avatar">
+                  <span class="time">hace <%= distance_of_time_in_words_to_now(message.created_at) %></span>
+                  <span class="label label-default"><%= message.user.full_name %> dijo</span>
+                </p>
+                <li class="list-group-item grey">
+              <% end %>
+                <%= message.body %>
+              </li>
             <% end %>
-              <%= message.body %>
-            </li>
-          <% end %>
-        </ul>
-        <br/>
-        <%= render partial: 'proposals/actions', locals: { proposal: proposal } %>
+          </ul>
+          <br/>
+          <%= render partial: 'proposals/actions', locals: { proposal: proposal } %>
+        </div>
       </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,31 +1,3 @@
 <div class="slide">
 	<%= image_tag("background_#{kind}.jpg") %>
-  <div class="container">
-		<div class="header centered">
-  		<%= image_tag('logo.png', class: 'logo preserve') %>
-			<p class="centered title centered-in">Comercializa reciclables fácil y rápido con personas cerca de ti, mejorando tu ciudad</p>
-		</div>
-		
-		<div class="main-content centered">
-			<a href="/participa/donando" class="icon">
-				<%= image_tag("recyclable-#{kind}.png", class: 'preserve') %>
-				<p class="centered centered-in">Dona <span class="emph"><%= localized_material(kind) %></span> y ayuda al planeta</p>
-			</a>
-			<a href="/participa/recolectando" class="icon">
-				<%= image_tag("recyclable-#{kind}-pay.png", class: 'preserve') %>
-				<p class="centered centered-in">Gana dinero recolectando <span class="emph"><%= localized_material(kind) %></span></p>
-			</a>
-		</div>
-		
-		<div class="footer centered">
-			<ul>
-				<li class="privacy text">Aviso de privacidad</li>
-				<li class="social-nets">
-					<%= link_to image_tag('twitter_icon.png', class: 'preserve icon') %> 
-					<%= link_to image_tag('facebook_icon.png', class: 'preserve icon') %>
-				</li>
-				<li class="privacy text">Conctáctanos en <i><%= mail_to('contacto@recyclo.mx') %></i></li>
-			</ul>
-		</div>
-	</div>
 </div>

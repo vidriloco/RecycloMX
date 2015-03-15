@@ -70,7 +70,7 @@
 			
 		</div>
 		<% if current_user.is_a_giver? %>
-			<div class="well bs-component location-panel">
+			<div class="well bs-component">
 				<legend>Ubicación</legend>
 				<%= render partial: 'locations/edit', locals: {f: f, location: @user.location } %>
 			</div>

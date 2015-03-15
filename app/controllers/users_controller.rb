@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user_is_owner, only: [:update]
   
   def show
+    render layout: 'profile'
   end
   
   def update

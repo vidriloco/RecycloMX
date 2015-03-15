@@ -1,3 +1,5 @@
+var locateMe;
+
 $(document).ready(function() {
 	
 	if($.isDefined('#map')) {
@@ -33,5 +35,19 @@ $(document).ready(function() {
 		else
 			map.setCoordinatesFromDom(coordinatesDOM.concat('_coordinates'), 11);
 		
+    locateMe = function() {
+      $('#locating-you').fadeIn('slow');
+      $('#locate-me').hide();
+      
+      map.getCurrentPosition(function(location) {
+        map.simulatePinPoint(location.coords.latitude, location.coords.longitude, 18);
+        $('#locating-you').hide();
+        $('#locate-me').fadeIn('slow');
+      }, function() {
+        alert('No fué posible obtener tu ubicación. Lo sentimos :(');
+        $('#locating-you').hide();
+        $('#locate-me').fadeIn('slow');
+      })
+    }
 	}
 });
