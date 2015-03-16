@@ -12,8 +12,8 @@ Recyclo::Application.routes.draw do
   # You can have the root of your site routed with "root"
   #root 'map#index'
   
-  get "participa/donando" => redirect('/offers/new')
-  get "participa/recolectando" => redirect('/offers')
+  get "participa/donando" => 'welcome#giver'
+  get "participa/recolectando" => 'welcome#picker'
   
   resources :offers
   put "offers/:id/toggle" => "offers#toggle_visibility", as: 'toggle_offer_visibility'

@@ -13,7 +13,12 @@
           <%= render partial: 'offers/fragments/contact_data', locals: {offer: @offer} %>
           <%= render partial: 'offers/fragments/delete', locals: {offer: @offer} %>
         <% else %>
-          <%= render 'offers/fragments/note_for_collectors' %>
+          <% if current_user_is_a_picker_for(@offer) %>
+            <%= render partial: 'offers/fragments/location', locals: {offer: @offer} %>
+            <%= render partial: 'offers/fragments/contact_data', locals: {offer: @offer} %>
+          <% else %>
+            <%= render 'offers/fragments/note_for_collectors' %>
+          <% end %>
         <% end %>
       </div>
     	<div class="col-lg-6">

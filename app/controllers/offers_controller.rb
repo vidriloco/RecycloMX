@@ -2,7 +2,7 @@
 class OffersController < ApplicationController
   layout 'profile'
   
-  before_filter :authenticate_user!, only: [:index, :create, :destroy]
+  before_filter :authenticate_user!, only: [:index, :destroy]
   before_filter :check_is_picker, only: [:index]
   
   def index
@@ -18,6 +18,7 @@ class OffersController < ApplicationController
   
   def create
     @offer = Offer.new_with(offer_params, current_user)
+    
     if @offer.save
       if user_signed_in?
         flash[:notice] = "Tu reciclable está ahora publicado, espera a que alguien te contacte"
@@ -74,7 +75,6 @@ class OffersController < ApplicationController
       :published,
       :quantifiable_type,
       :offer_image,
-      #appointments: [:meeting_time, :notes],
       location: [:coordinates_lat, :coordinates_lon, :address]
     )
   end
