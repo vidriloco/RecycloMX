@@ -1,14 +1,15 @@
 .lp {
 	
   .fixed-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 9999999;
+    z-index: 999;
     width: 100% !important;
     height: 2400px;
 		.header {
-      margin-top: 30px;			
+      top: 50%;
+      margin-top: -100px;			
 			.slogan {
 				padding: 10px 0 0 0;
 				vertical-align: middle;
@@ -36,7 +37,7 @@
     }
   }
   
-	.access-bar {
+	.navbar {
 		position: fixed;
 		float: right;
 		top: 15px;

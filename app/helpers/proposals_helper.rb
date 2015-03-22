@@ -1,5 +1,6 @@
 module ProposalsHelper
   def current_user_is_a_picker_for(offer)
+    return false if offer.selected_proposal.nil?
     !current_user.nil? && current_user.is_a_picker? && current_user == offer.selected_proposal.user
   end
   
