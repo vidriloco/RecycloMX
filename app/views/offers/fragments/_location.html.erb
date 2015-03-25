@@ -9,11 +9,13 @@
 </div>
 <div class="panel panel-default">
   <div id="offer-details-show" class="panel-body">
+    <% if offer.user == current_user %>
     <div class="row">
       <p class="text-warning centered">
         Tu ubicación <b>exacta</b> será revelada <b>solamente</b> al recolector que tu elijas
       </p>
     </div>
+    <% end %>
   	<%= hidden_field_tag 'offer[location[coordinates_lat]]', offer.location.lat %>
   	<%= hidden_field_tag 'offer[location[coordinates_lon]]', offer.location.lon %>
     <div id="map" class="map initial-location-set non-editable"></div>

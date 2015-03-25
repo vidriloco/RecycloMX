@@ -20,13 +20,13 @@
               <% if message.user == current_user %>
                 <p class="text-avatar">
                   <span class="time">hace <%= distance_of_time_in_words_to_now(message.created_at) %></span> 
-                  <span class="label label-primary">Tu dijiste</span>
+                  <span class="label label-default">Tu dijiste</span>
                 </p>
                 <li class="list-group-item blue">
               <% else %>
-                <p class="right text-avatar">
+                <p class="text-avatar">
                   <span class="time">hace <%= distance_of_time_in_words_to_now(message.created_at) %></span>
-                  <span class="label label-default"><%= message.user.full_name %> dijo</span>
+                  <span class="label label-primary"><%= message.user.full_name %> dijo</span>
                 </p>
                 <li class="list-group-item grey">
               <% end %>
