@@ -1,0 +1,15 @@
+<div class="reply centered">
+  <%= form_for(Message.new) do |m| %>
+    <div>
+        <%= m.hidden_field :proposal_id, value: proposal.id %>
+        <%= m.hidden_field :user_id, value: current_user.id %>
+        <%= m.text_area :body, 
+        placeholder: "Responde o haz una nueva pregunta", rows: 3 %>
+
+      <br/><br/>
+    </div>
+    <ul>
+      <li><%= m.submit 'Enviar', class: 'btn btn-primary' %></li>
+    </ul>
+  <% end %>
+</div>

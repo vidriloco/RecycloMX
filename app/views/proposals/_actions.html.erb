@@ -17,6 +17,10 @@
 
       <%= render partial: 'proposals/giver/reconsider_form', locals: { proposal: proposal } %>
     <% end %>
+    <br/>
+    <p class="lead">Si tienes más preguntas para el recolector, todavía puedes hacerlas por aquí</p>
+    <br/>
+    <%= render partial: 'proposals/reply', locals: { proposal: proposal } %>
   <% elsif proposal.is_rejected? %>
     <% if current_user_is_a_giver_of(proposal.offer) %>
       <p class="lead">No aceptaste la propuesta de <%= proposal.user.full_name %></p>
@@ -70,22 +74,7 @@
       </div>
     <% end %>
     <br/>
-    <div class="reply centered">
-      <%= form_for(Message.new) do |m| %>
-        <div>
-            <%= m.hidden_field :proposal_id, value: proposal.id %>
-            <%= m.hidden_field :user_id, value: current_user.id %>
-            <%= m.text_area :body, 
-            placeholder: "Responde o haz una nueva pregunta", rows: 3 %>
-  
-          <br/><br/>
-        </div>
-        <ul>
-          <li><%= link_to 'Cancelar', "#/locations/#{2}", class: 'btn btn-default' %></li>
-          <li><%= m.submit 'Enviar', class: 'btn btn-primary' %></li>
-        </ul>
-      <% end %>
-    </div>
+    <%= render partial: 'proposals/reply', locals: { proposal: proposal } %>
   <% else %>
     <% if current_user_is_a_giver_of(proposal.offer) %>
       <p class="lead">Ignoraste la propuesta de <%= proposal.user.full_name %></p>

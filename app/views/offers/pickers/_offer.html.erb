@@ -2,7 +2,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title centered"><%= humanized_title_for(offer) %></h5>
+        <h5 class="modal-title centered">
+          <span class="label label-primary">Oferta <b>#<%= offer_counter+1 %></b></span>&nbsp;&nbsp;&nbsp;
+          <%= humanized_title_for(offer) %>
+        </h5>
       </div>
       <div class="modal-body">
         <div class="row col-lg-10 col-lg-offset-1 centered">

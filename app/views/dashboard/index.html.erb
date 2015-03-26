@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-10 col-lg-offset-1">
 			<h3 class="centered">Tu actividad reciente</h3>
-            
+      <br/>
 			<% if @user.is_a_giver? %>
 				<%= render partial: 'dashboard/activity/giver', locals: { offers: @user.offers }  %>
 			<% elsif @user.is_a_picker? %>
