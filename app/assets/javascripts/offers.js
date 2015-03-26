@@ -94,6 +94,12 @@ $(document).ready(function() {
       $($(this).children('.content-editable')[0]).fadeIn(200);
       $($(this).children('.content-visible')[0]).hide();
     });
+    
+    $('.reciclables-list-group .list-group-item').on('click', function() {
+      $('.reciclables-list-group .list-group-item').removeClass('active');
+      $(this).addClass('active');
+      $(this).find('input:radio')[0].click();
+    });
   }
   
 });

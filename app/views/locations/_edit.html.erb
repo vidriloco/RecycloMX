@@ -1,7 +1,7 @@
 <%= f.fields_for :location do |l| %>
 	<div id="user-location-select" class="row">
 		<div class="col-lg-10 col-lg-offset-1 centered">
-	  	<p>Selecciona la ubicación donde se han de recolectar tus reciclables</p>
+	  	<p>Selecciona la ubicación exacta donde quieres que los recolectores recojan tus reciclables</p>
 	  	<div class="map <%= location_set?(location) %>" id="map"></div>
       <%= render 'locations/locate_me' %>
 		</div>
@@ -10,7 +10,7 @@
 	
 	  <div class="col-lg-10 col-lg-offset-1">
 			<%= l.text_field :address, placeholder: "Tu dirección", hide_label: true, class: 'form-control', value: (location.nil? ? '' : location.address) %> 
-			<span class="help-block">Ajusta tu dirección según lo consideres necesario</span>
+			<span class="help-block">Ajusta el texto de tu dirección para que el recolector no tenga problemas para recoger tus reciclables</span>
 		</div>
 	</div>
 

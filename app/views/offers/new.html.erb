@@ -22,19 +22,101 @@
             <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
           </div>
           <div class="panel-body">
-            <h4 class="centered">Detalles de tu <i>nuevo</i> reciclable</h4>
+            <h4 class="centered">Detalles de tu nuevo reciclable</h4>
             <br/>
+            <p class="lead centered">Selecciona el tipo de reciclable</p>
             <div class="row">
-              <div class="col-lg-8 col-lg-offset-2">
+              <div class="col-lg-10 col-lg-offset-1">
                 <div class="row">
-                  <div class="col-lg-4 centered">
+                  <div class="col-lg-12 centered">
+                    <div class="list-group reciclables-list-group">
+                      <a href="javascript:void(0)" class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <%= image_tag('recyclable-glass.png', class: 'img-responsive') %>
+                          </div>
+                          <div class="col-lg-8 content-section">
+                            <h4 class="list-group-item-heading"><%= Offer.materials_for(:glass) %></h4>
+                            <p class="list-group-item-text">Botellas de refresco, cerveza, vino u otras.</p>
+                          </div>
+                          <div class="col-lg-1">
+                            <%= f.radio_button :kind, Offer.materials_sym.invert[:glass] %>
+                          </div>
+                        </div>
+                      </a>
+                      <a href="javascript:void(0)" class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <%= image_tag('recyclable-PET.png', class: 'img-responsive') %>
+                          </div>
+                          <div class="col-lg-8 content-section">
+                            <h4 class="list-group-item-heading"><%= Offer.materials_for(:pet) %></h4>
+                            <p class="list-group-item-text">Envases de refresco, agua, jugos.</p>
+                          </div>
+                          <div class="col-lg-1">
+                            <%= f.radio_button :kind, Offer.materials_sym.invert[:pet] %>
+                          </div>
+                        </div>
+                      </a>
+                      <a href="javascript:void(0)" class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <%= image_tag('recyclable-paper.png', class: 'img-responsive') %>
+                          </div>
+                          <div class="col-lg-8 content-section">
+                            <h4 class="list-group-item-heading"><%= Offer.materials_for(:paper) %></h4>
+                            <p class="list-group-item-text">Periódico, revistas, cartón de caja, papel de oficina.</p>
+                          </div>
+                          <div class="col-lg-1">
+                            <%= f.radio_button :kind, Offer.materials_sym.invert[:paper] %>
+                          </div>
+                        </div>
+                      </a>
+                      <a href="javascript:void(0)" class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <%= image_tag('recyclable-metal.png', class: 'img-responsive') %>
+                          </div>
+                          <div class="col-lg-8 content-section">
+                            <h4 class="list-group-item-heading"><%= Offer.materials_for(:metal) %></h4>
+                            <p class="list-group-item-text">Latas de refresco, cerveza, jugo, atún.</p>
+                          </div>
+                          <div class="col-lg-1">
+                            <%= f.radio_button :kind, Offer.materials_sym.invert[:metal] %>
+                          </div>
+                        </div>
+                      </a>
+                      <a href="javascript:void(0)" class="list-group-item">
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <%= image_tag('recyclable-fierro.png', class: 'img-responsive') %>
+                          </div>
+                          <div class="col-lg-8 content-section">
+                            <h4 class="list-group-item-heading"><%= Offer.materials_for(:fierro) %></h4>
+                            <p class="list-group-item-text">Colchones, tambores, refrigeradores, estufas, lavadoras o microondas.</p>
+                          </div>
+                          <div class="col-lg-1">
+                            <%= f.radio_button :kind, Offer.materials_sym.invert[:metal] %>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <% if false %>
+                    <%= radio_button_tag(:kind, "child") %>
     								<%= f.select :kind, options_for_select(Offer.materials.invert.to_a), {}, 
     								{class: 'form-control'} %>
+                    <% end %>
                   </div>
-                  <div class="col-lg-4 centered">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-10 col-lg-offset-1">
+                <div class="row">
+                  <div class="col-lg-6 centered">
                     <%= f.number_field :quantity, placeholder: "Cantidad", required: true, hide_label: true, class: 'form-control' %>
                   </div>
-                  <div class="col-lg-4 centered">
+                  <div class="col-lg-6 centered">
     								<%= f.select :quantifiable_type, options_for_select(humanized_offer_quantifiables), 
                     {}, {class: 'form-control'} %>
                   </div>
@@ -43,30 +125,31 @@
             </div>
             <br/>
             <div class="row">
-              <div class="col-lg-8 col-lg-offset-2 centered">
+              <div class="col-lg-10 col-lg-offset-1 centered">
+                <%= f.text_area :details, placeholder: "Detalles adicionales", required: true, hide_label: true, class: 'form-control' %>
+                <span class="help-block">Escribe aquí detalles adicionales sobre tu donación de reciclables. Por ejemplo: días y horas en los que el recolector puede pasar a recogerlos o en cuántas bolsas los tienes almacenados.</span>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-lg-10 col-lg-offset-1 centered">
                 <%= image_tag('empty-pic.png', class: 'img-thumbnail', style: 'opacity: 0.4')%>
                 <br/><br/>
                 <%= f.file_field :offer_image %>
                 <%= f.hidden_field :offer_image_cache %>
-                <span class="help-block">Si tienes una foto a la mano, puedes añadirla para captar el interés de recolectores cercanos.</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-8 col-lg-offset-2 centered">
-                <%= f.text_area :details, placeholder: "Detalles adicionales", required: true, hide_label: true, class: 'form-control' %>
-                <span class="help-block">Escribe aquí detalles adicionales como por ejemplo, los <b>horarios</b> en los que te sea mejor para que alguien pase a recoger los residuos.</span>
+                <span class="help-block">Si tienes una foto a la mano de tus reciclables puedes añadirla para captar mayor interés de los recolectores cercanos.</span>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <p class="lead centered">La ubicación para recoger este reciclable será:</p>
+          <p class="lead centered">La ubicación para que el recolector recoja este reciclable será:</p>
         </div>
         <div class="panel panel-default">
           <br/>
           <div class="row">
             <p class="text-warning centered">
-              Tu ubicación <b>exacta</b> será revelada <b>solamente</b> al recolector que tu elijas
+              <b>IMPORTANTE:</b> Tu ubicación exacta y datos de contacto serán revelados al recolector que elijas.
             </p>
           </div>
           <div class="panel-body">

@@ -10,7 +10,7 @@ class Offer < ActiveRecord::Base
   validates :kind, :quantity, :details, :location, presence: true
   
   def self.materials 
-    {1 => "Plásticos", 2 => "Vidrio", 3 => "Papel y cartón", 4 => "Metal", 5 => "Fierro viejo"}
+    {1 => "Plásticos", 2 => "Vidrio", 3 => "Papel y cartón", 4 => "Aluminio y metal", 5 => "Fierro viejo / chatarra"}
   end
   
   def self.materials_sym
@@ -19,6 +19,10 @@ class Offer < ActiveRecord::Base
   
   def self.quantifiable_type_sym
     { 1 => :pieces, 2 => :kgs }
+  end
+  
+  def self.materials_for(symbol)
+    Offer.materials[Offer.materials_sym.invert[symbol]]
   end
   
   def self.all_visible_to(current_user)
