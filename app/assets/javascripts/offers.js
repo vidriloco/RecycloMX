@@ -96,6 +96,10 @@ $(document).ready(function() {
       $(this).hide();
     });
     
+    setTimeout(function() {
+      $('.container-right .legend .disable').click();
+    }, 700);
+    
 	} else if($.isDefined('#offer-show')) {
 		var offer = new Offer();
 		Path.map("#/").to(offer.hideProposals);
