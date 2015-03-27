@@ -1,11 +1,13 @@
 <div id="activity" class="activity-list">
 	<div class="row">
 		<div class="col-lg-10 col-lg-offset-1">
-			<h3 class="centered">Tu actividad reciente</h3>
-      <br/>
 			<% if @user.is_a_giver? %>
+  			<h3 class="centered">Reciclables publicados</h3>
+        <br/>
 				<%= render partial: 'dashboard/activity/giver', locals: { offers: @user.offers }  %>
 			<% elsif @user.is_a_picker? %>
+  			<h3 class="centered">Reciclables en observación</h3>
+        <br/>
 				<%= render partial: 'dashboard/activity/picker', locals: { offers: @user.offers_through_proposals }  %>
 			<% end %>
 		</div>
