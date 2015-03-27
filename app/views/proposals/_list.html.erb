@@ -8,7 +8,15 @@
     <% proposals = offer.proposals_in_context_of(current_user) %>
     
     <% if proposals.length == 0 %>
-      <p class="lead centered">Sin propuestas para mostrar</p>
+      <% if current_user.is_a_picker? %>
+        <p class="lead centered">No has iniciado contacto con el donante de este reciclable</p>
+        <br/>
+        <p class="centered">
+          <%= link_to 'Contactar', offers_path.concat("#/locations/#{offer.location.id}"), class: 'btn btn-success' %>
+        </p>
+      <% else %>
+        <p class="lead centered">No has recibido aún propuestas para este reciclable</p>
+      <% end %>
     <% else %>
       <% proposals.each do |proposal| %>
       <div id="proposal-<%= proposal.id %>" class="proposal">
