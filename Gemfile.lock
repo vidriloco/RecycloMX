@@ -172,6 +172,7 @@ GEM
     rgeo-shapefile (0.2.3)
       dbf (>= 1.7.0)
       rgeo (>= 0.3.3)
+    rmagick (2.13.4)
     safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.5)
@@ -240,6 +241,7 @@ DEPENDENCIES
   recurring_select
   rgeo
   rgeo-shapefile
+  rmagick
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3

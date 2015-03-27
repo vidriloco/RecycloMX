@@ -1,8 +1,8 @@
 <div class="user-profile">
   <div class="row centered">
     <div class="col-lg-2 col-lg-offset-5">
-      <% unless @user.avatar.url.nil? %>
-        <%= image_tag(@user.avatar.url, class: 'img-circle img-responsive')%>
+      <% unless @user.avatar.url(:thumb).nil? %>
+        <%= image_tag(@user.avatar.url(:thumb), class: 'img-circle img-responsive')%>
       <% else %>
         <%= image_tag('empty-user-pic.png', class: 'img-circle img-responsive', style: 'opacity: 0.4') %>
       <% end %>
@@ -12,9 +12,12 @@
   <div class="row centered">
     <div class="col-lg-8 col-lg-offset-2">
       <h4><%= @user.full_name %></h4>
-      <p class="twitter">@<%= @user.twitter %></p>
-      
-      <p class="bio"><%= @user.bio %></p>
+      <% unless @user.twitter.blank? %>
+        <p class="twitter">@<%= @user.twitter %></p>
+      <% end %>
+      <% unless @user.bio.blank? %>
+        <p class="bio"><%= @user.bio %></p>
+      <% end %>
     </div>
   </div>
 </div>

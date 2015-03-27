@@ -35,8 +35,8 @@
       
       <div class="row centered">
         <div class="col-lg-4 col-lg-offset-4">
-          <% unless @user.avatar.url.nil? %>
-            <%= image_tag(@user.avatar.url, class: 'img-circle img-responsive')%>
+          <% unless @user.avatar.url(:thumb).nil? %>
+            <%= image_tag(@user.avatar.url(:thumb), class: 'img-circle img-responsive')%>
           <% else %>
             <%= image_tag('empty-user-pic.png', class: 'img-circle img-responsive', style: 'opacity: 0.4') %>
           <% end %>
