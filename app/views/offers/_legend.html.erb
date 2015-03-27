@@ -1,0 +1,63 @@
+<div class="legend">
+  <a href="#" class="btn btn-primary btn-xs title enable"><span class="glyphicon glyphicon-triangle-top"></span> Mostrar leyenda</a>
+  <a href="#" class="btn btn-primary btn-xs title disable"><span class="glyphicon glyphicon-triangle-bottom"></span> Ocultar leyenda</a>
+
+  <a href="#" class="btn btn-warning btn-xs title info"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
+  <div class="list-group reciclables-list-group">
+    <a href="javascript:void(0)" class="list-group-item">
+      <div class="row">
+        <div class="col-lg-3">
+          <%= image_tag('recyclable-glass.png', class: 'img-responsive') %>
+        </div>
+        <div class="col-lg-9 content-section">
+          <h4 class="list-group-item-heading"><%= Offer.materials_for(:glass) %></h4>
+          <p class="list-group-item-text">Botellas de refresco, cerveza, vino u otras.</p>
+        </div>
+      </div>
+    </a>
+    <a href="javascript:void(0)" class="list-group-item">
+      <div class="row">
+        <div class="col-lg-3">
+          <%= image_tag('recyclable-pet.png', class: 'img-responsive') %>
+        </div>
+        <div class="col-lg-9 content-section">
+          <h4 class="list-group-item-heading"><%= Offer.materials_for(:pet) %></h4>
+          <p class="list-group-item-text">Envases de refresco, agua, jugos.</p>
+        </div>
+      </div>
+    </a>
+    <a href="javascript:void(0)" class="list-group-item">
+      <div class="row">
+        <div class="col-lg-3">
+          <%= image_tag('recyclable-paper.png', class: 'img-responsive') %>
+        </div>
+        <div class="col-lg-9 content-section">
+          <h4 class="list-group-item-heading"><%= Offer.materials_for(:paper) %></h4>
+          <p class="list-group-item-text">Periódico, revistas, cartón de caja, papel de oficina.</p>
+        </div>
+      </div>
+    </a>
+    <a href="javascript:void(0)" class="list-group-item">
+      <div class="row">
+        <div class="col-lg-3">
+          <%= image_tag('recyclable-metal.png', class: 'img-responsive') %>
+        </div>
+        <div class="col-lg-9 content-section">
+          <h4 class="list-group-item-heading"><%= Offer.materials_for(:metal) %></h4>
+          <p class="list-group-item-text">Latas de refresco, cerveza, jugo, atún.</p>
+        </div>
+      </div>
+    </a>
+    <a href="javascript:void(0)" class="list-group-item">
+      <div class="row">
+        <div class="col-lg-3">
+          <%= image_tag('recyclable-fierro.png', class: 'img-responsive') %>
+        </div>
+        <div class="col-lg-9 content-section">
+          <h4 class="list-group-item-heading"><%= Offer.materials_for(:fierro) %></h4>
+          <p class="list-group-item-text">Colchones, tambores, refrigeradores, estufas, lavadoras o microondas.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

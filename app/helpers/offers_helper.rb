@@ -28,7 +28,7 @@ module OffersHelper
     if collection.size == 1
       "<b>1</b> reciclable posteado por".html_safe
     else
-      "<b>2</b> reciclables posteados por".html_safe
+      "<b>#{collection.count}</b> reciclables posteados por".html_safe
     end
   end
 end

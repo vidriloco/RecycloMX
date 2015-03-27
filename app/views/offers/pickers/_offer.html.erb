@@ -1,9 +1,11 @@
-<div id="offer-<%= offer.id %>" class="offer-for-picker offer-is-<%= offer.is_available? ? 'available' : 'not-available' %>">	
+<div id="offer-<%= offer.id %>" 
+  class="offer-for-picker offer-is-<%= offer.is_available? ? 'available' : 'not-available' %>"
+  data-icon="markers/recyclable-<%= offer.material_kind_sym %>-marker">	
   <div class="modal-dialog">
     <div class="modal-content">
+      <%= image_tag("recyclable-#{offer.material_kind_sym}.png", class: 'bg-image')%>
       <div class="modal-header">
         <h5 class="modal-title centered">
-          <span class="label label-primary">Oferta <b>#<%= offer_counter+1 %></b></span>&nbsp;&nbsp;&nbsp;
           <%= humanized_title_for(offer) %>
         </h5>
       </div>

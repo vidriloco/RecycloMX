@@ -7,7 +7,15 @@
   }
 }
 
-
+.blue-modal {
+  background-color: #227FED !important;
+  color: white !important;
+  
+  h5 {
+    color: white !important;
+    
+  }
+}
 
 .navbar-brand {
 	padding: 2px !important;
@@ -74,6 +82,15 @@
 }
 
 .offer-for-picker {
+  
+  .bg-image {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    opacity: 0.2;
+    right: 20px;
+    top: 10px;
+  }
   
   .actions, .collect {
     margin-top: 20px !important;

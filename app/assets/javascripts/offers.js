@@ -67,11 +67,9 @@ $(document).ready(function() {
     // Load offer locations on to the map
     $('.offer-location .modal').each(function() {
       if($(this).children('.offer-for-picker').length == 0) {
-        console.log("Elminar");
         $(this).remove();
       } else {
-        console.log("Dibujar");
-  			var marker = {lat: $(this).parent().attr('data-lat'), lon: $(this).parent().attr('data-lng'), locationID: $(this).parent().attr('id') };
+  			var marker = {iconName: $($(this).children('.offer-for-picker')[0]).attr('data-icon'), lat: $(this).parent().attr('data-lat'), lon: $(this).parent().attr('data-lng'), locationID: $(this).parent().attr('id') };
   			map.addCoordinatesAsMarkerToList(marker, function(opts) {
           var id = opts.locationID.split('-');
           window.location = '#/locations/'.concat(id[1]);
@@ -79,7 +77,25 @@ $(document).ready(function() {
       }
     });
     
-
+    $('.container-right .legend .info').on('click', function() {
+      if($('.container-right .instructions').is(':visible'))
+        $('.container-right .instructions').hide();
+      else
+        $('.container-right .instructions').show();
+    });
+    
+    $('.container-right .legend .disable').on('click', function() {
+      $('.container-right .legend .reciclables-list-group').fadeOut();
+      $(this).hide();
+      $('.container-right .legend .enable').show();
+    });
+    
+    $('.container-right .legend .enable').on('click', function() {
+      $('.container-right .legend .reciclables-list-group').fadeIn();
+      $('.container-right .legend .disable').show();
+      $(this).hide();
+    });
+    
 	} else if($.isDefined('#offer-show')) {
 		var offer = new Offer();
 		Path.map("#/").to(offer.hideProposals);

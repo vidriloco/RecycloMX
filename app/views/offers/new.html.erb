@@ -47,7 +47,7 @@
                       <a href="javascript:void(0)" class="list-group-item">
                         <div class="row">
                           <div class="col-lg-3">
-                            <%= image_tag('recyclable-PET.png', class: 'img-responsive') %>
+                            <%= image_tag('recyclable-pet.png', class: 'img-responsive') %>
                           </div>
                           <div class="col-lg-8 content-section">
                             <h4 class="list-group-item-heading"><%= Offer.materials_for(:pet) %></h4>
@@ -96,7 +96,7 @@
                             <p class="list-group-item-text">Colchones, tambores, refrigeradores, estufas, lavadoras o microondas.</p>
                           </div>
                           <div class="col-lg-1">
-                            <%= f.radio_button :kind, Offer.materials_sym.invert[:metal] %>
+                            <%= f.radio_button :kind, Offer.materials_sym.invert[:fierro] %>
                           </div>
                         </div>
                       </a>
