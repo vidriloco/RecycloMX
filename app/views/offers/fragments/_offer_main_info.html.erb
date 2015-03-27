@@ -1,9 +1,15 @@
+<h4 class="centered section-title">Reciclable ofrecido</h4>
 <p>
   <ul class="nav nav-pills">
     <% if current_user == offer.user %>
       <li class="active"><a href="<%= user_activity_path %>">← Ir al dashboard</a></li>
     <% else %>
       <li class="active"><%= link_to '← Atrás', :back %></li>
+      <li class="active">
+        <a href="<%= user_profile_path(offer.user) %>" class="user-profile-link">
+          Por <b><%= offer.user.full_name %></b> hace <%= distance_of_time_in_words_to_now(offer.created_at) %>
+        </a>
+        </li>
     <% end %>
     <li class="pull-right">
       <% if offer.is_available? %>
@@ -19,7 +25,7 @@
   <% if current_user_is_a_picker_for(offer) %>
   <div class="alert alert-dismissible alert-info">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>Muy bien!</strong> Tu </a> propuesta fué seleccionada, ahora solo tienes que pasar a recoger los reciclables.
+    <strong>Muy bien!</strong> Tu </a> propuesta fue aceptada por el donador de reciclables. Ahora solo tienes que pasar a recogerlos, llevarlos a tu centro de acopio más cercano y recibir dinero por ellos :)
   </div>
   <% elsif current_user_is_a_giver_of(offer) %>
   <div class="alert alert-dismissible alert-info">

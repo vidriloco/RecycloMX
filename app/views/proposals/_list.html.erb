@@ -1,10 +1,9 @@
 <div class="messages-list">
   <% if current_user.is_a_picker? %>
-    <h4 class="centered">Tu propuesta</h4>
+    <h4 class="centered section-title">Tu propuesta para el donador de reciclables</h4>
   <% else %>
-    <h4 class="centered">Propuestas</h4>
+    <h4 class="centered section-title">Propuestas</h4>
   <% end %>
-  <br/>
   <div class="list-group">
     <% proposals = offer.proposals_in_context_of(current_user) %>
     
@@ -26,7 +25,7 @@
               <% else %>
                 <p class="text-avatar">
                   <span class="time">hace <%= distance_of_time_in_words_to_now(message.created_at) %></span>
-                  <span class="label label-primary"><%= message.user.full_name %> dijo</span>
+                  <span class="label label-primary"><%= link_to message.user.full_name, user_profile_path(proposal.user), class: 'user-profile-link' %> dijo</span>
                 </p>
                 <li class="list-group-item grey">
               <% end %>

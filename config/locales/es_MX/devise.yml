@@ -22,7 +22,7 @@ es_MX:
       timeout: 'Tu sesión ha expirado, por favor ingresa nuevamente para continuar.'
       inactive: 'Tu cuenta aún no ha sido activada.'
     sessions:
-      signed_in: 'Bienvenid@ de vuelta! A reciclar :)'
+      signed_in: 'Bienvenid@ de vuelta a Recyclo!'
       signed_out: 'Has salido del sistema.'
       user:
         already_signed_out: "Acabas de cerrar sesión ¿iniciar de nuevo?"

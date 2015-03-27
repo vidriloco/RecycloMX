@@ -15,6 +15,12 @@
         Tu ubicación <b>exacta</b> será revelada <b>solamente</b> al recolector que tu elijas
       </p>
     </div>
+    <% else %>
+      <div class="row">
+        <p class="text-warning centered">
+          Esta es la ubicación exacta donde podrás recoger el reciclable
+        </p>
+      </div>
     <% end %>
   	<%= hidden_field_tag 'offer[location[coordinates_lat]]', offer.location.lat %>
   	<%= hidden_field_tag 'offer[location[coordinates_lon]]', offer.location.lon %>

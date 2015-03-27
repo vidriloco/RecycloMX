@@ -11,10 +11,17 @@
   background-color: #227FED !important;
   color: white !important;
   
-  h5 {
+  h5, a {
     color: white !important;
-    
   }
+  
+  a {
+    font-weight: bold;
+  }
+}
+
+.user-profile-link:hover {
+  color: #FAFFCD !important;
 }
 
 .navbar-brand {
@@ -146,4 +153,10 @@
   .content-section {
     text-align: left;
   }
+}
+
+.section-title {
+  margin: 40px 0 30px 0;
+  border-bottom: 1px solid white;
+  padding-bottom: 20px;
 }
