@@ -1,4 +1,5 @@
-var locateMe;
+var formLocateMe;
+var mapLocateMe;
 
 $(document).ready(function() {
 	
@@ -35,7 +36,7 @@ $(document).ready(function() {
 		else
 			map.setCoordinatesFromDom(coordinatesDOM.concat('_coordinates'), 11);
 		
-    locateMe = function() {
+    formLocateMe = function() {
       $('#locating-you').fadeIn('slow');
       $('#locate-me').hide();
       
@@ -47,6 +48,14 @@ $(document).ready(function() {
         alert('No fué posible obtener tu ubicación. Lo sentimos :(');
         $('#locating-you').hide();
         $('#locate-me').fadeIn('slow');
+      })
+    }
+    
+    mapLocateMe = function() {
+      map.getCurrentPosition(function(location) {
+        map.simulatePinPoint(location.coords.latitude, location.coords.longitude, 16);
+      }, function() {
+        alert('No fué posible obtener tu ubicación. Lo sentimos :(');
       })
     }
 	}
