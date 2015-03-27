@@ -1,3 +1,15 @@
 <div id="deposits-list">
 	<%= render @deposits %>
 </div>
+
+<div class="container-right">
+  <div class="instructions">
+    <%= image_tag('map-icon.png') %>
+    <p>Encuentra aquí los centros de acopio más cercanos a tu ubicación</p>
+    <br/>
+  </div>
+  <div class="legend">
+    <a href="javascript:void(0);" class="btn btn-info btn-xs title info"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
+    <a href="javascript:mapLocateMe();" class="btn btn-warning btn-xs title"><span class="glyphicon glyphicon-globe"></span> Ubicarme</a>
+  </div>
+</div>

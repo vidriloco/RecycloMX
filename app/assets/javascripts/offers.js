@@ -52,6 +52,16 @@ Offer = function() {
 }
 
 $(document).ready(function() {
+  if($.isDefined('#offers-list') || $.isDefined('#deposits-list')) {
+    $('.container-right .legend .info').on('click', function() {
+      if($('.container-right .instructions').is(':visible'))
+        $('.container-right .instructions').hide();
+      else
+        $('.container-right .instructions').show();
+    });
+  }
+  
+  
 	if($.isDefined('#offers-list')) {
 		var offer = new Offer();
 		Path.map("#/").to(offer.hideAllOpenLocations);
@@ -75,13 +85,6 @@ $(document).ready(function() {
           window.location = '#/locations/'.concat(id[1]);
   			});
       }
-    });
-    
-    $('.container-right .legend .info').on('click', function() {
-      if($('.container-right .instructions').is(':visible'))
-        $('.container-right .instructions').hide();
-      else
-        $('.container-right .instructions').show();
     });
     
     $('.container-right .legend .disable').on('click', function() {
