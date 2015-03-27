@@ -147,9 +147,11 @@
         <div class="panel panel-default">
           <br/>
           <div class="row">
-            <p class="text-warning centered">
-              <b>IMPORTANTE:</b> Tu ubicación exacta y datos de contacto serán revelados al recolector que elijas.
-            </p>
+            <div class="col-lg-10 col-lg-offset-1 centered">
+              <p class="text-warning centered">
+                <b>IMPORTANTE:</b> Tu ubicación exacta y datos de contacto serán revelados al recolector que elijas.
+              </p>
+            </div>
           </div>
           <div class="panel-body">
   					<% if user_signed_in? && !current_user.location.nil? %>
