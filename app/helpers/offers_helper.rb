@@ -33,6 +33,7 @@ module OffersHelper
   end
   
   def last_message_for_offer_is_more_than?(offer, days)
+    return false if offer.messages.empty?
     ((Time.zone.now-offer.messages.last.created_at) / days) > 1
   end
 end

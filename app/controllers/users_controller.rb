@@ -29,6 +29,7 @@ class UsersController < ApplicationController
       :twitter,
       :role,
       :avatar,
+      :phone,
       location: [:address, :coordinates_lon, :coordinates_lat]
     )
   end

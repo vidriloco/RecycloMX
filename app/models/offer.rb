@@ -32,10 +32,13 @@ class Offer < ActiveRecord::Base
   def self.new_with(params, current_user)
     if Location.is_valid?(params[:location])
       location = Location.new_with(params.delete(:location))
+      location.user = current_user
       params[:location_id] = location.id if location.save 
     end
     
-    return Offer.new(params.merge(user_id: current_user.id, location_id: current_user.location.id)) unless current_user.nil?
+    params.merge!(user_id: current_user.id) unless current_user.nil?
+    params.merge!(location_id: current_user.location.id) if !current_user.nil? and !current_user.location.nil?
+    
     Offer.new(params)
   end
   
