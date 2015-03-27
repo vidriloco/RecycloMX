@@ -1,11 +1,6 @@
 <div id="offer-<%= @offer.id %>" class="offer">
 	<div id="offer-show">
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-        <%= render 'shared/messages' %>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-lg-6">
         <%= render partial: 'offers/fragments/offer_main_info', locals: {offer: @offer} %>  
         <% if current_user.id == @offer.user_id %>	

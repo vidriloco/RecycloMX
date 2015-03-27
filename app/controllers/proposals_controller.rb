@@ -4,9 +4,7 @@ class ProposalsController < ApplicationController
   
   def create
     @proposal = Proposal.new(proposal_params)
-    if @proposal.save
-      flash[:notice] = "Tu propuesta ha sido enviada! Espera la respuesta del donador"
-    end
+    @proposal.save
     redirect_to url_for_offer_with_location(@proposal)
   end
   

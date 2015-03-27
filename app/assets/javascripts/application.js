@@ -21,6 +21,7 @@
 //= require deposits
 //= require offers
 //= require users
+//= require shared
 //= require jquery.animate-enhanced.min
 //= require jquery.easing.1.3
 //= require jquery.superslides.min

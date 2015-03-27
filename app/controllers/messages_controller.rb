@@ -1,3 +1,4 @@
+#encoding: utf-8
 class MessagesController < ApplicationController
   
   before_filter :authenticate_user!
@@ -5,11 +6,11 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      flash[:notice] = "Tu mensaje ha sido enviado! Espera la respuesta del donador"
-      redirect_to offer_path(@message.proposal.offer).concat("#/proposals/#{@message.proposal.id}")
+      flash[:notice] = "Tu mensaje ha sido enviado! Espera la respuesta del donante"
     else
-      render nothing: true
+      flash[:error] = "No puedes ingresar un mensaje vacío"
     end
+    redirect_to offer_path(@message.proposal.offer).concat("#/proposals/#{@message.proposal.id}")
   end
   
   private

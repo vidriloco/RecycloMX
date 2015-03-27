@@ -11,6 +11,7 @@
 <body>
 	<div class="map-layout">
 		<%= render 'shared/navbar' %>
+  	<%= render 'shared/messages' %>
 		<div id="remote-server" data-assets-url="<%= root_url.concat('assets/') %>"></div>
 		<div id="map" class="full-map initial-location-set non-editable"></div>
 		<%= yield %>

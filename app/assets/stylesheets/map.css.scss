@@ -96,3 +96,24 @@
   }
 }
 
+.alert-container {
+  position: absolute !important;
+  top: 64px;
+  left: 0px;
+  width: 100%;
+  z-index: 1;
+  display: none;
+  
+  .alert {
+    border-radius: 0px;
+    
+    p {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .close {
+      top: 5px;
+    }
+  }
+}
