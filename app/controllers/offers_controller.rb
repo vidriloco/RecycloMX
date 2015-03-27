@@ -3,13 +3,17 @@ class OffersController < ApplicationController
   layout 'profile'
   
   before_filter :authenticate_user!, only: [:index, :destroy]
-  before_filter :check_is_picker, only: [:index]
   
   def index
-    @offers = Offer.all_visible_to(current_user)
-    @proposal = Proposal.new
-    @proposal.messages.build
-    render layout: 'full_map'
+    if current_user.is_a_picker?
+      @offers = Offer.all_visible_to(current_user)
+      @proposal = Proposal.new
+      @proposal.messages.build
+      render layout: 'full_map'
+    else
+      flash[:error] = "No estás habilitado para acceder a la lista de ofertas"
+      redirect_to user_profile_path(current_user)
+    end
   end
   
   def new
@@ -78,8 +82,5 @@ class OffersController < ApplicationController
       location: [:coordinates_lat, :coordinates_lon, :address]
     )
   end
-  
-  def check_is_picker
-    current_user.is_a_picker?
-  end
+
 end
