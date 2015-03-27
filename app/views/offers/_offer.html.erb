@@ -1,4 +1,5 @@
 <div id="offer-<%= offer.id %>" class="offer list-group">
+
   <a href="<%= offer_path(offer) %>" class="list-group-item">
   	<div class="row">
     	<div class="col-lg-6">
@@ -14,6 +15,9 @@
           <% if offer.is_available? %>
             <span class="label label-warning"><%= humanized_message_count_for(offer.messages.count) %></span>
             <span class="label label-primary">Disponible</span>
+            <% if last_message_for_offer_is_more_than?(offer, 1.day) %>
+              <span class="label label-danger">Requiere tu atención</span>
+            <% end %>
           <% else %>
             <span class="label label-default"><%= humanized_message_count_for(offer.messages.count) %></span>
             <span class="label label-info">Cerrada</span>

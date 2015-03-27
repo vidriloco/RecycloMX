@@ -31,4 +31,8 @@ module OffersHelper
       "<b>#{collection.count}</b> reciclables posteados por".html_safe
     end
   end
+  
+  def last_message_for_offer_is_more_than?(offer, days)
+    ((Time.zone.now-offer.messages.last.created_at) / days) > 1
+  end
 end

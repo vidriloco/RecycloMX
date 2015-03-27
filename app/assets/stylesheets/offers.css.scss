@@ -114,6 +114,11 @@
 }
 
 .offer {
+  .require-attention {
+    font-size: 14px;
+    margin-bottom: 10px !important;
+    display: inline-block;
+  }
   
   .alert-link {
     text-decoration: underline !important;
