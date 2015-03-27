@@ -4,3 +4,19 @@
 		height: 520px;
 	}
 }
+
+.user-profile {
+  h4, p {
+    margin: 0;
+  }
+  
+  .twitter {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .bio {
+    margin-top: 10px;
+    font-size: 17px;
+  }
+}

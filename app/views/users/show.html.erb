@@ -2,6 +2,8 @@
 	<div class="row">
 		<% if user_signed_in? && current_user == @user %>
 			<%= render 'users/profile/edit' %>
+    <% else %>
+      <%= render 'users/profile/show' %>
 		<% end %>
 	</div>
 </div>

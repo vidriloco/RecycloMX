@@ -1,0 +1,20 @@
+<div class="user-profile">
+  <div class="row centered">
+    <div class="col-lg-2 col-lg-offset-5">
+      <% unless @user.avatar.url.nil? %>
+        <%= image_tag(@user.avatar.url, class: 'img-circle img-responsive')%>
+      <% else %>
+        <%= image_tag('empty-user-pic.png', class: 'img-circle img-responsive', style: 'opacity: 0.4') %>
+      <% end %>
+    </div>
+  </div>
+  <br/>
+  <div class="row centered">
+    <div class="col-lg-8 col-lg-offset-2">
+      <h4><%= @user.full_name %></h4>
+      <p class="twitter">@<%= @user.twitter %></p>
+      
+      <p class="bio"><%= @user.bio %></p>
+    </div>
+  </div>
+</div>
