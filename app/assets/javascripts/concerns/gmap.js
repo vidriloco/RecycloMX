@@ -1,8 +1,8 @@
 var defaultZoom = 13;
 var defaultMiddleZoom = 16;
 var locationZoom = 18;
-var defaultLat = 19.322721;
-var defaultLon = -99.184570;
+var defaultLat = 19.425825;
+var defaultLon = -99.133717;
 var ViewComponents = {
 	Map: {}
 };
