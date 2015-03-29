@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
     trans_roles
   end
   
+  def should_update_profile?
+    phone.blank? || bio.blank?
+  end
+  
   def update_with(params)
     params.delete(:password) if params[:password].blank?
     location_params = params.delete(:location)

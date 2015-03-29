@@ -1,8 +1,20 @@
 <div id="users" class="col-lg-8 col-lg-offset-2">
 	
-	<h3 class="centered">Actualizar mis datos</h3>
+	<h3 class="centered">Editar mi perfil</h3>
 	<br/>
-	
+  <% if @user.should_update_profile? %>
+    <div class="list-group">
+      <a href="javascript:void(0)" class="list-group-item">
+        <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-info-sign"></i> Te sugerimos</h4>
+        <p class="list-group-item-text">
+          Que completes los campos de tu perfil que permanecen vacíos, como por ejemplo <b>teléfono</b> o <b>bio</b>. <br/>
+          <% if @user.avatar.url.nil? %>
+          Si te es posible, también añade una <b>foto</b>.
+          <% end %> Así, te será más fácil ofertar/recolectar reciclables con otros usuarios. 
+        </p>
+      </a>
+    </div>
+  <% end %>
 	<%= form_for(@user, method: :put) do |f| %>
 	  <div class="row">
 			<div class="col-lg-12"><%= f.submit "Actualizar perfil", class: 'pull-right btn btn-primary' %></div>

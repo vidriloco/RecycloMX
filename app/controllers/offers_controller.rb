@@ -9,6 +9,7 @@ class OffersController < ApplicationController
       @offers = Offer.all_visible_to(current_user)
       @proposal = Proposal.new
       @proposal.messages.build
+
       render layout: 'full_map'
     else
       flash[:error] = "No estás habilitado para acceder a la lista de ofertas"
