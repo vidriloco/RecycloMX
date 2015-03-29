@@ -2,7 +2,7 @@
 <p>
   <ul class="nav nav-pills">
     <% if current_user == offer.user %>
-      <li class="active"><a href="<%= user_activity_path %>">← Ir al dashboard</a></li>
+      <li class="active"><a href="<%= user_activity_path %>">← Atrás</a></li>
     <% else %>
       <li class="active"><%= link_to '← Atrás', :back %></li>
       <li class="active">
