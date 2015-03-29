@@ -1,0 +1,9 @@
+es_MX:
+  recyclo:
+    password:
+      email:
+        title: "¿Problemas para acceder a tu cuenta en <b>Recyclo</b>?"
+        subtitle: "Te podemos ayudar <i>%{username}</i> :)"
+        message: "Hemos recibido una solicitud para reestablecer tu contraseña. Si fuiste tú, haz click en el siguiente link. Si no fuiste tú, puedes ignorar este correo."
+        link:
+          text: "Nueva contraseña"

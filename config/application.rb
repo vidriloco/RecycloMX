@@ -20,5 +20,8 @@ module Recyclo
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es_MX
     config.assets.paths << "#{Rails}/app/assets/fonts"
+    
+    config.action_mailer.default_url_options = { host: 'http://www.recyclo.mx' }
+    Rails.application.routes.default_url_options[:host] = 'http://www.recyclo.mx'
   end
 end

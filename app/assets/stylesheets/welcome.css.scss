@@ -9,6 +9,7 @@
     height: 100%;
     width: 100%;
     overflow: scroll;
+    overflow-x: hidden;
     
     .fixed-icon {
       position: fixed;
@@ -90,7 +91,9 @@
     left: 0;
     z-index: 999;
     height: 100%;
-    overflow: hidden;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
        
 		.header {
       margin-top: 80px;			

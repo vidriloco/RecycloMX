@@ -1,16 +1,35 @@
-<h2>Change your password</h2>
+<div class="container login">
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3">
+      <div class="well bs-component">
+        <h3 class="title">Reestablecer contraseña</h3>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+        <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+          <%= f.hidden_field :reset_password_token %>
+					<div class="form-group">
+					  <div class="col-lg-10 col-lg-offset-1">
+							<%= f.password_field :password, placeholder: "Nueva contraseña", :autofocus => true, class: 'form-control' %> 
+						</div>
+					</div>
+          
+					<div class="form-group">
+					  <div class="col-lg-10 col-lg-offset-1">
+							<%= f.password_field :password_confirmation, placeholder: "Confirmar contraseña", :autofocus => true, class: 'form-control' %> 
+						</div>
+					</div>
+          
+				  <div class="row">
+						<div class="col-lg-12 centered">
+              <br/>
+              <%= f.submit "Reestablecer" %>
+            </div>
+					</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+        
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
