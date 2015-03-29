@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   
   serialize :roles, Array
   
-  validates :full_name, :email, :password, :role, :presence => true
-  validates :email, :uniqueness => true
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates :full_name, :email, :presence => true
+  validates :password, :role, :presence => true, on: 'create'
+  validates :email, :uniqueness => true, on: 'create'
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: 'create'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

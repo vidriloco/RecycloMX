@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       :role,
       :avatar,
       :phone,
+      :avatar_cache,
       location: [:address, :coordinates_lon, :coordinates_lat]
     )
   end
