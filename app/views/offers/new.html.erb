@@ -102,8 +102,10 @@
                     </div>
                     <% if false %>
                     <%= radio_button_tag(:kind, "child") %>
+                    <div class="<%= errors_for_field?(@offer, :kind) %>">
     								<%= f.select :kind, options_for_select(Offer.materials.invert.to_a), {}, 
     								{class: 'form-control'} %>
+                    </div>
                     <% end %>
                   </div>
                 </div>
@@ -113,11 +115,15 @@
               <div class="col-lg-10 col-lg-offset-1">
                 <div class="row">
                   <div class="col-lg-6 centered">
+                    <div class="<%= errors_for_field?(@offer, :quantity) %>">
                     <%= f.number_field :quantity, placeholder: "Cantidad", required: true, hide_label: true, class: 'form-control' %>
+                    </div>
                   </div>
                   <div class="col-lg-6 centered">
-    								<%= f.select :quantifiable_type, options_for_select(humanized_offer_quantifiables), 
-                    {}, {class: 'form-control'} %>
+                    <div class="<%= errors_for_field?(@offer, :quantifiable_type) %>">
+    								  <%= f.select :quantifiable_type, options_for_select(humanized_offer_quantifiables), 
+                      {}, {class: 'form-control'} %>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -125,7 +131,9 @@
             <br/>
             <div class="row">
               <div class="col-lg-10 col-lg-offset-1 centered">
-                <%= f.text_area :details, placeholder: "Detalles adicionales", required: true, hide_label: true, class: 'form-control' %>
+                <div class="<%= errors_for_field?(@offer, :details) %>">
+                  <%= f.text_area :details, placeholder: "Detalles adicionales", required: true, hide_label: true, class: 'form-control' %>
+                </div>
                 <span class="help-block">Escribe aquí detalles adicionales sobre tu donación de reciclables. Por ejemplo: días y horas en los que el recolector puede pasar a recogerlos o en cuántas bolsas los tienes almacenados.</span>
               </div>
             </div>

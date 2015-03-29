@@ -1,10 +1,14 @@
 <%= f.fields_for :location do |l| %>
 	<div id="offer-location-select" class="row centered">
     <div class="map" id="map"></div>
-    <div class="col-lg-8 col-lg-offset-2">
+
+    <div class="col-lg-12">
       <%= render 'locations/locate_me' %>
-  		<%= l.text_field :address, placeholder: "Tu dirección", hide_label: true, class: 'form-control' %> 
-      <span class="help-block">Ajusta tu dirección según lo consideres necesario</span>
+      
+      <div class="<%= errors_for_field?(@offer, :location) %>">
+  		  <%= l.text_field :address, placeholder: "Tu dirección", hide_label: true, class: 'form-control' %> 
+      </div>
+      <span class="help-block">Tu dirección en texto es necesaria para que el recolector no se pierda</span>
     </div>
 	</div>
 	<%= hidden_field_tag 'offer[location[coordinates_lat]]' %>

@@ -25,7 +25,6 @@ $(document).ready(function() {
 		
 		map = new ViewComponents.Map(new google.maps.Map(document.getElementById("map"), mapOptions), {
 			coordinatesDom: coordinatesDOM.concat('_coordinates'),
-			addressDom: coordinatesDOM.concat('_address'),
 			isEditable: !$('#map').hasClass('non-editable'),
 			skipWritingAddressToDomAtStart: $('#map').hasClass('initial-location-set')
 		});

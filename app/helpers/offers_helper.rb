@@ -36,4 +36,12 @@ module OffersHelper
     return false if offer.messages.empty?
     ((Time.zone.now-offer.messages.last.created_at) / days) > 1
   end
+  
+  def errors_for_field?(offer, field)
+    offer.errors.each do |error|
+      if error.eql?(field)
+        return 'has-error'
+      end
+    end
+  end
 end
