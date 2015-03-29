@@ -12,15 +12,6 @@ module DeviseHelper
   end
   
   def html_error_for(message)
-    html = <<-HTML
-    <div class="alert-container">
-    	<div class="alert alert-dismissible alert-danger">
-    		<button class="close" data-dismiss="alert" type="button">×</button>
-    		<p class="centered">#{message}</p>
-    	</div>
-    </div>
-    HTML
-
-    html.html_safe
+    render(partial: 'devise/shared/errors', locals: { message: message })
   end
 end
