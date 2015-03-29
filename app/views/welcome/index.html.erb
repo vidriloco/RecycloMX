@@ -27,7 +27,7 @@
             <p class="slogan">Comercializa reciclables fácil y rápido con personas cerca de ti, mejorando tu ciudad</p>
             
             <span class="know-more">
-              <a href="javascript:void(0)" class="btn btn-lg btn-primary">Conocer más!</a>
+              <a href="javascript:void(0)" class="btn btn-lg btn-primary show-more-info">¿Cómo funciona?</a>
             </span>
           </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="col-lg-2"></div>
         <a href="<%= participa_recolectando_path %>" class="col-lg-3 right">
           <h4 class="title">Recolecta reciclables</h4>
-          <p class="text">Busca, recolecta y vende reciclables en depositos cercanos a tu ubicación y gana dinero en tu tiempo libre.</p>
+          <p class="text">Busca, recolecta y vende reciclables en depósitos cercanos a tu ubicación y gana dinero en tu tiempo libre.</p>
         </a>
         <a href="<%= participa_recolectando_path %>" class="col-lg-1">
           <%= image_tag("recyclable-metal-pay.png", class: 'img-responsive centered-in') %>
@@ -68,4 +68,75 @@
 			</ul>
 		</div>
 	</div>
+  
+  <div class="fixed-modal">
+    <%= link_to image_tag('close-icon.png', size: '30x30'), 'javascript:void(0)', class: 'fixed-icon  hide-more-info' %>
+    <div class="contents-of-modal">
+      <div class"row">
+        <div class="col-lg-5 steps">
+          <%= image_tag('world-icon.png', size: '500x500', class: 'fixed-left-icon') %>
+          <h4 class="centered title">Donar reciclables</h4>
+          
+          <div class="step row">
+            <div class="col-lg-2 number">1</div>
+            <div class="col-lg-10 instruction">
+              <p><b>Separa</b> tu basura y almacena reciclables como el vidrio, cartón, plásticos, metal o fierros.</p>
+            </div>
+          </div>
+          <div class="step row">
+            <div class="col-lg-2 number">2</div>
+            <div class="col-lg-10 instruction">
+              <p><b>Publica</b> el tipo y la cantidad de reciclables que vas a donar.</p>
+            </div>
+          </div>
+          <div class="step row">
+            <div class="col-lg-2 number">3</div>
+            <div class="col-lg-10 instruction">
+              <p><b>Acuerda</b> una fecha y hora con el recolector que tu selecciones a través de <i>Recyclo</i> para entregarle los reciclables.</p>
+            </div>
+          </div>
+          <div class="step row conclusive">
+            <div class="col-lg-12 centered">
+              <p class="button">
+                <%= link_to 'Empieza a donar', participa_donando_path, class: 'btn btn-primary btn-primary-lg' %>
+              </p>
+              <p class="mini-title">y ayuda al planeta!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-5 steps">
+          <%= image_tag('money-icon.png', size: '500x500', class: 'fixed-right-icon') %>
+          <h4 class="centered title">Hacer dinero recolectando reciclables</h4>
+          
+          <div class="step row">
+            <div class="col-lg-2 number">1</div>
+            <div class="col-lg-10 instruction">
+              <p><b>Busca</b> reciclables cercanos a tu ubicación.</p>
+            </div>
+          </div>
+          <div class="step row">
+            <div class="col-lg-2 number">2</div>
+            <div class="col-lg-10 instruction">
+              <p><b>Contacta</b> al donador a través de <i>Recyclo</i> para acordar fecha y hora para recogerlos.</p>
+            </div>
+          </div>
+          <div class="step row">
+            <div class="col-lg-2 number">3</div>
+            <div class="col-lg-10 instruction">
+              <p><b>Recoge</b> los reciclables, llévalos al centro de acopio más cercano y recibe dinero por ellos.</p>
+            </div>
+          </div>
+          <div class="step row conclusive">
+            <div class="col-lg-12 centered">
+              <p class="button">
+                <%= link_to 'Empieza a recolectar', participa_donando_path, class: 'btn btn-primary btn-primary-lg' %>
+              </p>
+              <p class="mini-title">y gana dinero!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

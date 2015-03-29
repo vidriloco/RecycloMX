@@ -1,5 +1,89 @@
 .lp {	
+  .fixed-modal {
+    display: none;
+    background-color: rgba(1,1,1,0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    
+    .fixed-icon {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+    }
+    
+    .fixed-left-icon, .fixed-right-icon {
+      position: absolute;
+      opacity: 0.1;
+    }
+    
+    .fixed-left-icon {
+      top: 60px;
+      left: 40px;
+    }
+    
+    .fixed-right-icon {
+      top: 60px;
+      right: -40px;
+    }
+    
+    .contents-of-modal {
+      padding: 80px 100px;
+      h4 {
+        color: white !important;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+      }
+      
+      .title {
+        margin-bottom: 40px;
+      }
+      
+      .steps {
+        .step {
+          margin: 10px;
+          
+          b {
+            color: #CDFFCA;
+            font-weight: 600;
+          }
+          
+          .number {
+            font-size: 50px;
+            font-weight: bold;
+            color: #CDFFCA;
+          }
+          
+          .instruction {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+          }
+        }
+        
+        .conclusive {
+          .button {
+            margin-top: 30px;
+            a {
+              font-weight: bold;
+              font-size: 18px;
+            }
+          }
+          .mini-title {
+            color: #CDFFCA;
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  
   .fixed-container {
+    display: none;
     background-color: rgba(1,1,1,0.4);
     position: absolute;
     top: 0;
