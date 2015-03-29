@@ -1,6 +1,13 @@
 <div id="landing-page" class="lp">
-	<div class="navbar">
-		<%= link_to "<i class='glyphicon glyphicon-user'></i>&nbsp;&nbsp;&nbsp;Ingresar".html_safe, new_user_session_path %>
+	<div class="floating-navbar">
+    <ul>
+    	<li>
+        <%= link_to "<i class='glyphicon glyphicon-user'></i>&nbsp;&nbsp;Ingresar".html_safe, new_user_session_path %>
+      </li>
+      <li>
+    	  <%= link_to "<i class='glyphicon glyphicon-pencil'></i>&nbsp;&nbsp;&nbsp;Registrate".html_safe, new_user_registration_path %>
+      </li>
+    </ul>
 	</div>
 	<div id="slides">
 	  <div class="slides-container">
@@ -12,55 +19,53 @@
 	</div>
   
   <div class="fixed-container">
-		<div class="row header">
-  		<div class="col-lg-4 col-lg-offset-4 centered">
-        <div class="row centered">
-          <div class="col-lg-8 col-lg-offset-2">
-        		<%= image_tag('logo.png', class: 'img-responsive centered-in') %>          
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-4 col-lg-offset-4 centered header">
+            <%= image_tag('logo.png', class: 'img-responsive centered-in') %>
+            <p class="slogan">Comercializa reciclables fácil y rápido con personas cerca de ti, mejorando tu ciudad</p>
+            
+            <span class="know-more">
+              <a href="javascript:void(0)" class="btn btn-lg btn-primary">Conocer más!</a>
+            </span>
           </div>
-    			<p class="slogan">Comercializa reciclables fácil y rápido con personas cerca de ti, mejorando tu ciudad</p>
-        </div>
-  		</div>
-    </div>
-    <div class="row main">
-      <div class="col-lg-8 col-lg-offset-2">
-        <div class="list-group">
-          <a href="/participa/donando" class="list-group-item">
-            <div class="row">
-              <div class="col-lg-3">
-        				<%= image_tag("recyclable-metal.png", class: 'img-responsive centered-in') %>
-              </div>
-              <div class="col-lg-9 text">
-                <h4 class="list-group-item-heading">Almacena, publica y <b>dona</b> tus reciclables</h4>
-                <p class="list-group-item-text">Dale un mejor uso a tus desechos y ayuda a limpiar tu ciudad</p>
-              </div>
-            </div>
-          </a>
-          <a href="/participa/recolectando" class="list-group-item">
-            <div class="col-lg-9 right">
-              <h4 class="list-group-item-heading">Busca, recolecta y <b>vende</b> reciclabes en volúmen</h4>
-              <p class="list-group-item-text">Aprovecha tu tiempo libre y ayuda al medio ambiente</p>
-            </div>
-            <div class="row">
-              <div class="col-lg-3">
-        				<%= image_tag("recyclable-metal-pay.png", class: 'img-responsive centered-in') %>
-              </div>
-            </div>
-          </a>
         </div>
       </div>
     </div>
-    <% if false %>
+    <div class="start-opts">
+      <div class"row">
+        <div class="col-lg-1"></div>
+        <a href="<%= participa_donando_path %>" class="col-lg-1">
+          <%= image_tag("recyclable-metal.png", class: 'img-responsive centered-in') %>
+        </a>
+        <a href="<%= participa_donando_path %>" class="col-lg-3">
+          <h4 class="title">Dona tus reciclables</h4>
+          <p class="text">Almacena, publica y dona reciclables para ayudar a tener una ciudad más limpia y libre de basura.</p>
+        </a>
+        <div class="col-lg-2"></div>
+        <a href="<%= participa_recolectando_path %>" class="col-lg-3 right">
+          <h4 class="title">Recolecta reciclables</h4>
+          <p class="text">Busca, recolecta y vende reciclables en depositos cercanos a tu ubicación y gana dinero en tu tiempo libre.</p>
+        </a>
+        <a href="<%= participa_recolectando_path %>" class="col-lg-1">
+          <%= image_tag("recyclable-metal-pay.png", class: 'img-responsive centered-in') %>
+        </a>
+        <div class="col-lg-1"></div>
+      </div>
+    </div>
 		<div class="footer centered">
 			<ul>
 				<li class="privacy text">Aviso de privacidad</li>
-				<li class="social-nets">
+        <li class="privacy text"><b>Recyclo 2015</b></li>
+				<% if false %>
+        <li class="social-nets">
 					<%= link_to image_tag('twitter_icon.png', class: 'preserve icon') %> 
 					<%= link_to image_tag('facebook_icon.png', class: 'preserve icon') %>
 				</li>
-				<li class="privacy text">Conctáctanos en <i><%= mail_to('contacto@recyclo.mx') %></i></li>
+        <% end %>
+				<li class="privacy text">Contáctanos en <i><%= mail_to('contacto@recyclo.mx') %></i></li>
 			</ul>
 		</div>
-    <% end %>
 	</div>
 </div>
