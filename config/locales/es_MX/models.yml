@@ -1,4 +1,14 @@
 es_MX:
+  activerecord:
+    models:
+      offer: "Oferta"
+      deposito: "Depósito"
+      user: "Usuario"
+    attributes:
+      user:
+        full_name: "Nombre completo"
+        password: "Contraseña"
+        role: "Tipo de usuario"
   models:
     deposit:
       name: "Deposito"
