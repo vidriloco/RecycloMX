@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>Hola <%= @to_user.full_name %></h1>
+      <p><b><%= @from_user.full_name %></b> parece estar interesado en el reciclable que ofreces.</p>
+      <p>Puedes responderle
+        <%= link_to "aquí", offer_url(@proposal.offer).concat("#/proposals/#{@proposal.id}"), style: "color: #006FB7;" %>
+      </p>
+      <p style="font-size: 15px; font-weight: normal; color: #BABABA;">Recyclo <%= Date.today.year %></p>
+    </div>
+  </body>
+</html>

@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_one :location
-  has_many :offers
+  has_many :offers, dependent: :destroy
   has_many :deposits
-  has_many :proposals
+  has_many :proposals, dependent: :destroy
   has_many :messages, through: :proposals
     
   def offers_through_proposals

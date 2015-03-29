@@ -4,13 +4,15 @@ class ProposalsController < ApplicationController
   
   def create
     @proposal = Proposal.new(proposal_params)
-    @proposal.save
+    UserMailer.send_proposal_email(@proposal).deliver if @proposal.save
+    
     redirect_to url_for_offer_with_location(@proposal)
   end
   
   def update
     @proposal = Proposal.find(params[:id])
     if @proposal.update_attributes(proposal_params)
+      UserMailer.notify_picker_about_proposal_status_change_email(@proposal).deliver 
       flash[:notice] = "Tu propuesta ha sido actualizada!"
     end
     redirect_to offer_path(@proposal.offer)
