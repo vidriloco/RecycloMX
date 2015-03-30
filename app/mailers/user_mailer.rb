@@ -1,5 +1,7 @@
 #encoding: utf-8
 class UserMailer < ActionMailer::Base
+  add_template_helper(OffersHelper)
+  
   default from: "noreply@recyclo.mx"
   
   def send_message_email(user, message)

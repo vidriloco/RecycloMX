@@ -5,16 +5,23 @@
   </head>
   <body>
     <div style="text-align: center">
-      <h1>Hola <%= @to_user.full_name %></h1>
-      <p><b><%= @from_user.full_name %></b> ha decidido sobre tu propuesta, lo siguiente:</p>
-      
-      <div style="padding: 10px; margin: 10px; background-color: #E9E9E9; color: #676767">
-        <p><%= @proposal.is_accepted? ? "La ha aceptado!" : "No la ha aceptado :(" %></p>
-      </div>
-      
-      <p>Puedes ver más información sobre el estado de la propuesta
-        <%= link_to "aquí", offer_url(@proposal.offer).concat("#/proposals/#{@proposal.id}"), style: "color: #006FB7;" %>
+      <h1>¡Hola <%= @to_user.full_name %>!</h1>
+      <p>El donador de reciclables <b><%= @from_user.full_name %></b> ha 
+        <%= @proposal.is_accepted? ? "ACEPTADO las condiciones de entrega del siguiente reciclable:" : "RECHAZADO tu propuesta" %>
       </p>
+      
+      <% if @proposal.is_accepted? %>
+        <div style="padding: 10px; margin: 10px; background-color: #E9E9E9; color: #676767">
+          <p><%= humanized_title_for(@proposal.offer) %></p>
+        </div>
+        <p>Ahora solo tienes que acudir a su domicilio, cuya dirección podrás encontrar 
+        <%= link_to "aquí", offer_url(@proposal.offer), style: "color: #006FB7;" %></p>
+      <% else %>
+        <p>Puedes ver más información sobre su decisión
+          <%= link_to "aquí", offer_url(@proposal.offer).concat("#/proposals/#{@proposal.id}"), style: "color: #006FB7;" %>
+        </p>
+      <% end %>
+      
       <p style="font-size: 15px; font-weight: normal; color: #BABABA;">Recyclo <%= Date.today.year %></p>
     </div>
   </body>

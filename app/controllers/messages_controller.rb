@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       UserMailer.send_message_email(current_user, @message).deliver
-      flash[:notice] = "Tu mensaje ha sido enviado! Espera la respuesta del donante"
+      flash[:notice] = "Tu mensaje ha sido enviado!"
     else
       flash[:error] = "No puedes ingresar un mensaje vacío"
     end
