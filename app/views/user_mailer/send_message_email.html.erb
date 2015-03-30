@@ -10,7 +10,7 @@
       <div style="padding: 10px; margin: 10px; background-color: #E9E9E9; color: #676767">
         <p><%= @message.body %></p>
       </div>
-      <p>Puedes verlo 
+      <p>Puedes ver el mensaje  
         <%= link_to "aquí", offer_url(@message.proposal.offer).concat("#/proposals/#{@message.proposal.id}"), style: "color: #006FB7;" %> para acordar cuándo y dónde <%= @from_user.is_a_picker? ? "puede pasar por tus reciclables" : "puedes pasar por sus reciclables" %>
       </p>
       <p style="font-size: 15px; font-weight: normal; color: #BABABA;">Recyclo <%= Date.today.year %></p>
