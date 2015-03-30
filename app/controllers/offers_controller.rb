@@ -34,6 +34,7 @@ class OffersController < ApplicationController
         redirect_to new_user_registration_path
       end
     else
+      #binding.pry
       flash[:error] = "Verifica que la cantidad, el tipo, los detalles y la ubicación del reciclable no estén vacíos."
       render action: 'new'
     end
@@ -81,6 +82,7 @@ class OffersController < ApplicationController
       :published,
       :quantifiable_type,
       :offer_image,
+      :offer_image_cache,
       location: [:coordinates_lat, :coordinates_lon, :address]
     )
   end

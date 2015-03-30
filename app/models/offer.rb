@@ -31,7 +31,7 @@ class Offer < ActiveRecord::Base
   
   def self.new_with(params, current_user)
     location_params = params.delete(:location)
-    if Location.is_valid?(params[:location])
+    if Location.is_valid?(location_params)
       location = Location.new_with(location_params)
       location.user = current_user
       params[:location_id] = location.save ? location.id : nil  
