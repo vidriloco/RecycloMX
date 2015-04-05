@@ -7,7 +7,7 @@ class Offer < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
   
-  validates :kind, :quantity, :details, :location, presence: true
+  validates :kind, :quantity, :location, presence: true
   
   def self.materials 
     {1 => "Plásticos", 2 => "Vidrio", 3 => "Papel y cartón", 4 => "Aluminio y metal", 5 => "Fierro viejo / chatarra"}

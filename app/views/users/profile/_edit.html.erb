@@ -21,7 +21,7 @@
 		</div>
 		<br/>
     
-    <% if false %>
+        <% if false %>
 		<div class="well bs-component">
 			<legend>En <span class="upper">RE</span>cyclo soy ...</legend>
 			<div class="row form-group">
@@ -54,7 +54,16 @@
           <% end %>
         </div>
       </div>
-      
+      <br/><br/>
+      <div class="row form-group centered">
+        <div class="col-lg-10 col-lg-offset-1">
+        <span class="help-block">Si tienes una foto tuya, súbela, inspirarás mayor confianza a los demás.</span>
+        
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+      </div>
+      <br/>
 			<div class="row form-group">
 			  <div class="col-lg-10 col-lg-offset-1">
 					<%= f.text_field :full_name, placeholder: "Tu nombre", hide_label: true, class: 'form-control' %> 
@@ -76,16 +85,8 @@
 			<div class="row form-group">
 			  <div class="col-lg-10 col-lg-offset-1">
 					<%= f.text_field :twitter, placeholder: "Tu nombre de usuario en twitter", hide_label: true, class: 'form-control' %> 
-				</div>
+                                <span class="help-block">Añade tu cuenta de twitter para que quien te contacte, se sienta más seguro de hacerlo.</span>
 			</div>
-			
-      <div class="row form-group">
-        <div class="col-lg-10 col-lg-offset-1">
-          <%= f.file_field :avatar %>
-          <%= f.hidden_field :avatar_cache %>
-          <span class="help-block">Si tienes una foto tuya, súbela, inspirarás mayor confianza a los demás.</span>
-        </div>
-      </div>
 			
 		</div>
 		<% if current_user.is_a_giver? %>
