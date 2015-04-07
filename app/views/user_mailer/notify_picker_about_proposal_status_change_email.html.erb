@@ -5,7 +5,7 @@
   </head>
   <body>
     <div style="text-align: center">
-      <h1>¡Hola <%= @to_user.full_name %>!</h1>
+      <h1>Hola <%= @to_user.full_name %></h1>
       <p>El donador de reciclables <b><%= @from_user.full_name %></b> ha 
         <%= @proposal.is_accepted? ? "ACEPTADO las condiciones de entrega del siguiente reciclable:" : "RECHAZADO tu propuesta" %>
       </p>

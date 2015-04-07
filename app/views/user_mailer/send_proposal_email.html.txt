@@ -1,0 +1,5 @@
+Hola <%= @to_user.full_name %>
+El recolector de reciclables <%= @from_user.full_name %> parece estar interesado en el siguiente reciclable:
+<%= humanized_title_for(@proposal.offer) %>: <%= offer_url(@proposal.offer) %>">
+Puedes responderle aquí <%= offer_url(@proposal.offer).concat("#/proposals/#{@proposal.id}") %> para confirmar que puede pasar por ellos o para resolver sus dudas.
+Recyclo <%= Date.today.year %>

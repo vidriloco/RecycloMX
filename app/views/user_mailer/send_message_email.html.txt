@@ -1,0 +1,5 @@
+Hola <%= @to_user.full_name %>
+<%= @from_user.is_a_picker? ? "El recolector" : "El donador" %> de reciclables <b><%= @from_user.full_name %> te ha enviado un mensaje nuevo:
+<%= @message.body %>
+Puedes ver el mensaje aquí: <%= offer_url(@message.proposal.offer).concat("#/proposals/#{@message.proposal.id}") %> para acordar cuándo y dónde <%= @from_user.is_a_picker? ? "puede pasar por tus reciclables" : "puedes pasar por sus reciclables" %>
+Recyclo <%= Date.today.year %>

@@ -1,0 +1,6 @@
+Hola <%= @to_user.full_name %>
+El donador de reciclables <%= @from_user.full_name %> ha <%= @proposal.is_accepted? ? "ACEPTADO las condiciones de entrega del siguiente reciclable:" : "RECHAZADO tu propuesta" %>
+<%= humanized_title_for(@proposal.offer) %>
+Ahora solo tienes que acudir a su domicilio, cuya dirección podrás encontrar aquí: <%= offer_url(@proposal.offer) %>.
+Puedes ver más información sobre su decisión aquí: <%= offer_url(@proposal.offer).concat("#/proposals/#{@proposal.id}") %>
+Recyclo <%= Date.today.year %>

@@ -11,10 +11,9 @@ ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.raise_delivery_errors = true
 # Mailer configuration
 ActionMailer::Base.smtp_settings = {
-  address: "smtp.gmail.com",
+  address: "smtp.1and1.com",
   port: 587,
-  authentication: 'plain',
-  user_name: "contacto@wikicleta.com",
-  password: "virusdisk",
-  enable_starttls_auto: true
+  authentication: 'login',
+  user_name: "contacto@recyclo.mx",
+  password: "8080recyclo"
 }
