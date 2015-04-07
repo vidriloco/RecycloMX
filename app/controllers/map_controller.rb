@@ -4,7 +4,6 @@ class MapController < ApplicationController
   layout 'map_layout'
   
   before_filter :authenticate_user!
-  before_filter :find_company
   
   def index
     respond_to do |format|

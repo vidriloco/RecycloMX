@@ -6,6 +6,8 @@ class DashboardController < ApplicationController
   
   def index
     @user = current_user
+    # Tracking user action mixpanel
+    Tracker.track_user_visited_dashboard(current_user, request.ip)
   end
   
 end

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_one :location
+  has_one :location, dependent: :destroy
   has_many :offers, dependent: :destroy
   has_many :deposits
   has_many :proposals, dependent: :destroy
@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
   
   def has_role?(role_name)
     role == User.roles[role_name]
+  end
+  
+  def sym_role
+    User.roles.invert[self.role]
   end
   
   def role_enum

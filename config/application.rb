@@ -23,5 +23,10 @@ module Recyclo
     
     config.action_mailer.default_url_options = { host: 'http://www.recyclo.mx' }
     Rails.application.routes.default_url_options[:host] = 'http://www.recyclo.mx'
+    
+    config.to_prepare do
+      DeviseFilters.add_filters
+    end
+    
   end
 end

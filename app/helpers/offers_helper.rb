@@ -1,10 +1,7 @@
 #encoding: utf-8
 module OffersHelper
   def humanized_title_for(object)
-    if object.is_a?(Offer)
-      humanized_quantifier = t("offers.quantifiers.#{Offer.quantifiable_type_sym[object.quantifiable_type]}")
-      "#{object.quantity.to_i} #{humanized_quantifier.downcase} de #{object.material_kind}".html_safe
-    end
+    object.name.html_safe if object.is_a?(Offer)
   end
   
   def humanized_offer_quantifiables

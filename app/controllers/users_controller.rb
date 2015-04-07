@@ -5,11 +5,15 @@ class UsersController < ApplicationController
   before_filter :authenticate_user_is_owner, only: [:update]
   
   def show
+    # Tracking user action mixpanel
+    Tracker.track_own_user_profile_shown(current_user, @user, request.ip)
     render layout: 'profile'
   end
   
   def update
     if @user.update_with(user_attributes)
+      # Tracking user action mixpanel
+      Tracker.track_user_updated_profile(current_user, @user, user_attributes, request.ip)
       sign_in(@user, :bypass => true)
       flash[:notice] = "Has actualizado tu perfil :)" 
     else

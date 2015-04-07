@@ -1,5 +1,5 @@
 class Proposal < ActiveRecord::Base
-  has_many :messages
+  has_many :messages, dependent: :destroy
   belongs_to :offer
   belongs_to :user
   
@@ -13,6 +13,10 @@ class Proposal < ActiveRecord::Base
   
   def self.status_for
     self.statuses.invert
+  end
+  
+  def sym_status
+    Proposal.statuses[status]
   end
   
   def is_accepted?

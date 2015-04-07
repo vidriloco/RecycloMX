@@ -2,7 +2,7 @@
 class Offer < ActiveRecord::Base
   mount_uploader :offer_image, OfferImageUploader
 
-  has_many :proposals
+  has_many :proposals, dependent: :destroy
   has_many :messages, through: :proposals
   belongs_to :user
   belongs_to :location
@@ -47,6 +47,11 @@ class Offer < ActiveRecord::Base
     offer = Offer.find(id)
     offer.update_attribute(:user_id, user.id)
     offer.location.update_attribute(:user_id, user.id)
+  end
+  
+  def name
+    humanized_quantifier = I18n.t("offers.quantifiers.#{Offer.quantifiable_type_sym[self.quantifiable_type]}")
+    "#{self.quantity.to_i} #{humanized_quantifier.downcase} de #{self.material_kind}"
   end
   
   def material_kind

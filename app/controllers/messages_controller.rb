@@ -8,8 +8,12 @@ class MessagesController < ApplicationController
     if @message.save
       UserMailer.send_message_email(current_user, @message).deliver
       flash[:notice] = "Tu mensaje ha sido enviado!"
+      # Tracking user action mixpanel
+      Tracker.track_message_creation_success(current_user, @message, request.ip)
     else
       flash[:error] = "No puedes ingresar un mensaje vacío"
+      # Tracking user action mixpanel
+      Tracker.track_message_creation_failure(current_user, @message, request.ip)
     end
     redirect_to offer_path(@message.proposal.offer).concat("#/proposals/#{@message.proposal.id}")
   end

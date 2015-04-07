@@ -2,11 +2,29 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  
-  #before_filter :kind_of_unregistered_user
-  
+    
   layout :custom_layout
   protected
+  
+  def track_sign_in
+    # Tracking user action mixpanel
+    Tracker.track_event(request.ip, 'User will sign in')
+  end
+  
+  def track_sign_up
+    # Tracking user action mixpanel
+    Tracker.track_event(request.ip, 'User will sign up')
+  end
+  
+  def track_new_password
+    # Tracking user action mixpanel
+    Tracker.track_event(request.ip, 'User asking to recover password')
+  end
+  
+  def track_edit_password
+    # Tracking user action mixpanel
+    Tracker.track_event(request.ip, 'User editing password')
+  end
     
   def after_sign_in_path_for(resource_or_scope)
     session[:user_kind] = nil
