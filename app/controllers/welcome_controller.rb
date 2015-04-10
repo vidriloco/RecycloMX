@@ -15,4 +15,8 @@ class WelcomeController < ApplicationController
     session[:user_kind] = User.roles[:giver]
     redirect_to new_offer_path
   end
+  
+  def privacy_note
+     render layout: 'front' 
+  end
 end

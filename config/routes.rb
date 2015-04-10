@@ -23,6 +23,7 @@ Recyclo::Application.routes.draw do
   resources :messages
   resources :proposals
   
+  get 'aviso-de-privacidad' => 'welcome#privacy_note', as: 'privacy_note'
   get 'admin' => 'admin#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

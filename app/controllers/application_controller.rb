@@ -45,6 +45,6 @@ class ApplicationController < ActionController::Base
   end
   
   def custom_layout
-    return 'login_registration' if is_a?(Devise::SessionsController) or is_a?(Devise::RegistrationsController) or is_a?(Devise::PasswordsController)
+    return 'front' if is_a?(Devise::SessionsController) or is_a?(Devise::RegistrationsController) or is_a?(Devise::PasswordsController)
   end
 end

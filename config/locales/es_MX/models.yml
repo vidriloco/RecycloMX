@@ -6,9 +6,10 @@ es_MX:
       user: "Usuario"
     attributes:
       user:
-        full_name: "Nombre completo"
+        full_name: "Nombre"
         password: "Contraseña"
-        role: "Tipo de usuario"
+        role: "Tu forma de participación"
+        accepted_privacy_note: "El aviso de privacidad"
   models:
     deposit:
       name: "Deposito"
@@ -30,6 +31,7 @@ es_MX:
         company: "Empresa"
         last_sign_in_at: "Última fecha de inicio de sesión"
         sign_in_count: "Total de entradas"
+        accepted_privacy_note: "El aviso de privacidad"
       roles:
         superuser: "Superusuario"
         giver: "Donador"

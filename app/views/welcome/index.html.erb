@@ -56,13 +56,15 @@
     </div>
 		<div class="footer centered">
 			<ul>
-				<li class="privacy text">Aviso de privacidad</li>
+				<li class="privacy text">
+          <%= link_to 'Aviso de privacidad', privacy_note_path,  target: '_blank' %>
+        </li>
         <li class="privacy text"><b>Recyclo 2015</b></li>
-				<% if false %>
+			  <% if false %>
         <li class="social-nets">
-					<%= link_to image_tag('twitter_icon.png', class: 'preserve icon') %> 
-					<%= link_to image_tag('facebook_icon.png', class: 'preserve icon') %>
-				</li>
+          <%= link_to image_tag('twitter_icon.png', class: 'preserve icon') %>
+          <%= link_to image_tag('facebook_icon.png', class: 'preserve icon') %>
+        </li>
         <% end %>
 				<li class="privacy text">Contáctanos en <i><%= mail_to('contacto@recyclo.mx') %></i></li>
 			</ul>

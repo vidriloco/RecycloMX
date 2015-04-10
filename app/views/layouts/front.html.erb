@@ -16,8 +16,7 @@
   </head>
   <body>
 		<%= image_tag('registration_bg.jpg', class: 'login-bg-photo') %>
-		<%= devise_error_messages! %>
-		<%= devise_sign_in_errors! %>
+    <%= yield :messages_and_alerts %>
     
     <div class="navbar navbar-inverse navbar-static-top">
       <div class="container">
@@ -30,14 +29,7 @@
 					<%= image_tag('logo-mini.png') %>
 				</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-					
-					<ul class="nav navbar-nav navbar-right">
-						<% if url_for == new_user_session_path %>
-	        		<li><a href="<%= new_user_registration_path %>"><b>¿No tienes cuenta aún?</b> Registrate</a></li>
-						<% else %>
-		        	<li><a href="<%= new_user_session_path %>"><b>¿Ya tienes una cuenta?</b> Ingresa con ella</a></li>
-						<% end %>
-		      </ul>
+					<%= yield :navbar_menu_items %>
         </div>
       </div>
     </div>
