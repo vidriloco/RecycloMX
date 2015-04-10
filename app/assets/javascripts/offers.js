@@ -3,6 +3,7 @@ Offer = function() {
   
   this.showLocation = function() {
     var id = this.params['id'];
+    mixpanel.track("Checked location with ID:".concat(id), {address_ip: userip});
     loadLocation(id);
   }
   
@@ -14,6 +15,7 @@ Offer = function() {
 		var offerID = '#offer-'.concat(offerId).concat(' .modal-footer');
     $(offerID.concat(' .collect')).fadeIn(300);
     $(offerID.concat(' .actions')).hide();
+    mixpanel.track("Considering collecting offer with ID:".concat(offerID), {address_ip: userip});
   }
   
   this.resetURL = function() {

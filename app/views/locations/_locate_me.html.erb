@@ -1,6 +1,5 @@
-<span class="help-block">Haz click en tu ubicación en el mapa o deja que te ayudemos a encontrarte en el mapa</span>
+<span class="help-block">Haz click en tu ubicación en el mapa o haz click <%= link_to 'aquí', 'javascript:formLocateMe();', id: 'locate-me-good' %> para ubicarte automáticamente.</span>
 <div class="retrieve-location">
-  <p id="locate-me"><%= link_to 'Ubicarme', 'javascript:formLocateMe();', class: 'btn btn-sm btn-warning' %></p>
   <div id="locating-you" class="locate-me">
     <div class="progress progress-striped active">
       <div class="progress-bar progress-bar-warning" style="width: 100%"></div>

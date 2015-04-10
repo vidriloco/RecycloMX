@@ -26,3 +26,17 @@
 //= require jquery.easing.1.3
 //= require jquery.superslides.min
 //= require welcome
+
+$(document).ready(function() {
+    $('#locate-me-good').on('click', function() {
+        mixpanel.track("Attempted to locate", {address_ip: userip});
+    });
+    
+    $('#how-it-works').on('click', function() {
+        mixpanel.track("Saw how it works", {address_ip: userip});
+    });
+    
+    $('#close-how-it-works').on('click', function() {
+        mixpanel.track("Close how it works", {address_ip: userip});
+    });
+});

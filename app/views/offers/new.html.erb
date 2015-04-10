@@ -132,7 +132,7 @@
             <div class="row">
               <div class="col-lg-10 col-lg-offset-1 centered">
                 <div class="<%= errors_for_field?(@offer, :details) %>">
-                  <%= f.text_area :details, placeholder: "Detalles adicionales", required: true, hide_label: true, class: 'form-control' %>
+                  <%= f.text_area :details, placeholder: "Detalles adicionales", hide_label: true, class: 'form-control' %>
                 </div>
                 <span class="help-block">Escribe aquí detalles adicionales sobre tu donación de reciclables. Por ejemplo: días y horas en los que el recolector puede pasar a recogerlos o en cuántas bolsas los tienes almacenados.</span>
               </div>
@@ -157,7 +157,7 @@
           <div class="row">
             <div class="col-lg-10 col-lg-offset-1 centered">
               <p class="text-warning centered">
-                <b>IMPORTANTE:</b> Tu ubicación exacta y datos de contacto serán revelados al recolector que elijas.
+                <b>IMPORTANTE:</b> Tu ubicación en el mapa y dirección exactas, así como tus datos de contacto serán revelados al recolector que elijas.
               </p>
             </div>
           </div>
