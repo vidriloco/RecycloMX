@@ -49,11 +49,12 @@ class Tracker
     end
   end
   
-  def self.track_offer_created_failure(user, ip)
+  def self.track_offer_created_failure(user, offer, ip)
+    offer_obj = self.offer_info(offer).merge(offer.errors.messages)
     unless user.nil?
-      Tracker.track_event_for_user(user, 'Could not create offer', {address_ip: ip})
+      Tracker.track_event_for_user(user, 'Could not create offer', {address_ip: ip}.merge(offer_obj))
     else
-      Tracker.track_event(ip, user.errors.messages)
+      Tracker.track_event(ip, 'Could not create offer', offer_obj)
     end
   end
   
