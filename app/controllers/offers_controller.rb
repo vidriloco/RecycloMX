@@ -2,7 +2,7 @@
 class OffersController < ApplicationController
   layout 'profile'
   
-  before_filter :authenticate_user!, only: [:index, :destroy]
+  before_filter :authenticate_user!, only: [:index, :destroy, :show]
   
   def index
     if current_user.is_a_picker?
