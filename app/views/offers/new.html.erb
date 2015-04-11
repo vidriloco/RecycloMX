@@ -149,19 +149,13 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <p class="lead centered">La ubicación para que el recolector recoja este reciclable será:</p>
-        </div>
         <div class="panel panel-default">
+          <br><br>
+          <h4 class="centered">Ubicación del reciclable</h4>
           <div class="panel-body">
   					<% if user_signed_in? && !current_user.location.nil? %>
   						<%= render partial: 'locations/review', locals: { f: f, location: current_user.location} %>
   					<% else %>
-              <div class="alert alert-dismissible alert-success">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                Es necesario que selecciones tu <b>ubicación en el mapa</b> e ingreses una <b>dirección</b> exacta para que <b>SOLAMENTE</b> el recolector que tú elijas pueda pasar por los reciclables que publiques.
-              </a>
-              </div>
             	<%= render partial: 'locations/new', locals: {f: f} %>
   					<% end %>
           </div>

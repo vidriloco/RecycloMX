@@ -1,17 +1,27 @@
 <%= f.fields_for :location do |l| %>
 	<div id="offer-location-select" class="row centered">
-    <div class="col-lg-12">
-      <div class="<%= errors_for_field?(@offer, :location) %>">
-  		  <%= l.text_field :address, placeholder: "Tu dirección", hide_label: true, class: 'form-control' %> 
+    <div class="col-lg-10 col-lg-offset-1">
+      <p class="lead centered">Selecciona tu ubicación en el mapa</p>
+      <span class="help-block">
+        Usa <%= link_to 'ubicación automática', 'javascript:formLocateMe();', id: 'locate-me-good', class: 'label label-success' %> para centrar el mapa automáticamente en tu ubicación. <i>Debes aceptar que tu explorador acceda a tu ubicación.</i>
+      </span>
+      <div class="map" id="map">
       </div>
-      <span class="help-block">Tu dirección es necesaria para que el recolector no se pierda</span>
       <br/>
     </div>
-    <div class="map" id="map">
-    </div>
-
-    <div class="col-lg-12">
+    <div class="col-lg-10 col-lg-offset-1">
       <%= render 'locations/locate_me' %>
+    </div>
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="<%= errors_for_field?(@offer, :location) %>">
+        <p class="lead centered">Escribe tu dirección</p>
+        
+        <span class="help-block">
+          Trata de ser lo más específico posible, de eso depende que el recolector pueda completar su tarea con facilidad.</i>
+        </span>
+  		  <%= l.text_field :address, placeholder: "Dirección", hide_label: true, class: 'form-control' %> 
+      </div>
+      <br/>
     </div>
 	</div>
 	<%= hidden_field_tag 'offer[location[coordinates_lat]]' %>

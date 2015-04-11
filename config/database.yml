@@ -22,7 +22,7 @@ test:
   username: postgres
 
 production:
-  database: reyouse_main
+  database: reyouse
   adapter: postgis
   encoding: unicode
   username: spalatin

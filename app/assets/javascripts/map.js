@@ -43,8 +43,10 @@ $(document).ready(function() {
         map.simulatePinPoint(location.coords.latitude, location.coords.longitude, 18);
         $('#locating-you').hide();
         $('#locate-me').fadeIn('slow');
+        mixpanel.track("Successfully located", {address_ip: userip});
       }, function() {
         alert('No fué posible obtener tu ubicación. Lo sentimos :(');
+        mixpanel.track("Unsuccessfully located", {address_ip: userip});
         $('#locating-you').hide();
         $('#locate-me').fadeIn('slow');
       })
