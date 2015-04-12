@@ -14,7 +14,7 @@ ActionMailer::Base.smtp_settings = {
   address: "smtp.gmail.com",
   port: 587,
   authentication: 'plain',
-  user_name: "contacto@recyclo.mx",
+  user_name: "no-reply@recyclo.mx",
   password: "8080recyclo",
   domain: 'www.recyclo.mx',
   enable_starttls_auto: true
