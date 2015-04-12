@@ -2,7 +2,7 @@
 class UserMailer < ActionMailer::Base
   add_template_helper(OffersHelper)
   
-  default from: "noreply@recyclo.mx"
+  default "from" => "no-reply@recyclo.mx", "Message-ID" => Proc.new { "<#{SecureRandom.uuid}@recyclo.mx>" }
   
   def send_message_email(user, message)
     if user == message.proposal.offer.user
