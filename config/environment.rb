@@ -15,5 +15,6 @@ ActionMailer::Base.smtp_settings = {
   port: 587,
   authentication: 'login',
   user_name: "contacto@recyclo.mx",
-  password: "8080recyclo"
+  password: "8080recyclo",
+  domain: 'www.recyclo.mx'
 }
