@@ -11,10 +11,11 @@ ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.raise_delivery_errors = true
 # Mailer configuration
 ActionMailer::Base.smtp_settings = {
-  address: "smtp.1and1.com",
+  address: "smtp.gmail.com",
   port: 587,
-  authentication: 'login',
+  authentication: 'plain',
   user_name: "contacto@recyclo.mx",
   password: "8080recyclo",
-  domain: 'www.recyclo.mx'
+  domain: 'www.recyclo.mx',
+  enable_starttls_auto: true
 }
