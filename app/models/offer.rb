@@ -7,7 +7,9 @@ class Offer < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
   
-  validates :kind, :quantity, :location, presence: true
+  validates :kind, :quantity, presence: true
+  
+  before_validation :check_location
   
   def self.materials 
     {1 => "Plásticos", 2 => "Vidrio", 3 => "Papel y cartón", 4 => "Aluminio y metal", 5 => "Fierro viejo / chatarra"}
@@ -100,5 +102,11 @@ class Offer < ActiveRecord::Base
   
   def location_string
     "#{location.id}:#{location.lat}:#{location.lon}"
+  end
+  
+  private
+  def check_location
+    errors.add(:location, "Necesitas ubicarte en el mapa") if self.location.nil? || self.location.lat.nil? || self.location.lon.nil?
+    errors.add(:address, "Escribe tu domicilio") if self.location.nil? || self.location.address.blank?
   end
 end

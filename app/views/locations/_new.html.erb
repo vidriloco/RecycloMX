@@ -2,18 +2,22 @@
 	<div id="offer-location-select" class="row centered">
     <div class="col-lg-10 col-lg-offset-1">
       <p class="lead centered">Selecciona tu ubicación en el mapa</p>
-      <span class="help-block">
-        Usa <%= link_to 'ubicación automática', 'javascript:formLocateMe();', id: 'locate-me-good', class: 'label label-success' %> para centrar el mapa automáticamente en tu ubicación. <i>Debes aceptar que tu explorador acceda a tu ubicación.</i>
-      </span>
-      <div class="map" id="map">
+      <div class="<%= errors_for_field?(@offer, :location) %>">
+        <span class="help-block">
+          Es necesario que selecciones tu ubicación en el mapa. 
+        </span>
+        <div class="map" id="map"></div>
       </div>
+      <span class="help-block">
+        Puedes hacer click <%= link_to 'aquí', 'javascript:formLocateMe();', id: 'locate-me-good', class: 'label label-success' %> para centrar el mapa automáticamente en tu ubicación.<i>Debes aceptar que tu explorador acceda a tu ubicación.</i>
+      </span>
       <br/>
     </div>
     <div class="col-lg-10 col-lg-offset-1">
       <%= render 'locations/locate_me' %>
     </div>
     <div class="col-lg-10 col-lg-offset-1">
-      <div class="<%= errors_for_field?(@offer, :location) %>">
+      <div class="<%= errors_for_field?(@offer, :address) %>">
         <p class="lead centered">Escribe tu dirección</p>
         
         <span class="help-block">
