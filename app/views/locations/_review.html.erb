@@ -1,14 +1,13 @@
 <%= f.fields_for :location do |l| %>
   <div id="offer-location-select">
+  	<div class="row">
+  	  <div class="col-lg-10 col-lg-offset-1 centered">
+        <p><%= location.address %></p>
+  		</div>
+  	</div>
     <div class="map non-editable" id="map"></div>
   	<%= hidden_field_tag 'offer[location[coordinates_lat]]', location.lat %>
   	<%= hidden_field_tag 'offer[location[coordinates_lon]]', location.lon %>
-  	<br/><br/>
-  	<div class="row">
-  	  <div class="col-lg-10 col-lg-offset-1 centered">
-  			<%= text_area_tag :address, location.address, placeholder: "Tu ubicación", disabled: true, rows: 3, cols: 43 %> 
-        <span class="help-block"><span class="label label-primary">Esta es la ubicación</span> que verá el recolector que selecciones cuando aceptes las condiciones para que pase a recoger tus reciclables. <br> Si quieres cambiar de ubicación, ve a tu <%= link_to 'perfil', user_profile_path(current_user.id) %>.</span>
-  		</div>
-  	</div>
+    <span class="help-block">Si quieres cambiar de ubicación, ve a tu <%= link_to 'perfil', user_profile_path(current_user.id) %>.</span>
   </div>
 <% end %>
