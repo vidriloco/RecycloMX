@@ -1,11 +1,22 @@
 <div id="landing-page" class="lp">
+  <div class="left-floating-navbar">
+    <ul>
+      <li><b>Síguenos en:</b></li>
+    	<li>
+        <%= link_to image_tag('twitter_icon.png', size: '25x25'), 'http://twitter.com/recyclomx', target: '_blank' %>
+      </li>
+    	<li>
+        <%= link_to image_tag('facebook_icon.png', size: '25x25'), 'https://www.facebook.com/recyclo.mx', target: '_blank' %>
+      </li>
+    </ul>
+  </div>
 	<div class="floating-navbar">
     <ul>
     	<li>
         <%= link_to "<i class='glyphicon glyphicon-user'></i>&nbsp;&nbsp;Ingresar".html_safe, new_user_session_path %>
       </li>
       <li>
-    	  <%= link_to "<i class='glyphicon glyphicon-pencil'></i>&nbsp;&nbsp;&nbsp;Registrate".html_safe, new_user_registration_path %>
+    	  <%= link_to "<i class='glyphicon glyphicon-pencil'></i>&nbsp;&nbsp;&nbsp;Regístrate".html_safe, new_user_registration_path %>
       </li>
     </ul>
 	</div>

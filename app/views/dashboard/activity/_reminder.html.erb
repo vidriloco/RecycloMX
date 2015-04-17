@@ -1,34 +1,25 @@
 <div class="row">
   <% if user_signed_in? && current_user.is_a_picker? %>
     <div class="col-lg-6">
-      <div class="list-group">
-        <a href="javascript:void(0)" class="list-group-item">
-          <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-info-sign"></i> Cierra el trato</h4>
-          <p class="list-group-item-text">
-            En esta página aparece la lista de reciclables a cuyos donantes has contactado, haz click en algún elemento de la lista para ver como va la negociación de ese reciclable. 
-          </p>
-        </a>
+      <div class="alert alert-dismissible alert-noteme">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4><i class="glyphicon glyphicon-info-sign"></i> Cierra el trato</h4>
+        <p>En esta página aparece la lista de reciclables a cuyos donantes has contactado, haz click en algún elemento de la lista para ver como va la negociación de ese reciclable. <b>Te notificaremos por correo electrónico cuando te responda algún donante.</b></p>
       </div>
     </div>
     <div class="col-lg-6">
-      <div class="list-group">
-        <a href="<%= deposits_path -%>" class="list-group-item">
-          <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-info-sign"></i> Ubica centros de acopio</h4>
-          <p class="list-group-item-text">
-            Una vez que hayas recolectado uno o más reciclables, ubíca el centro de acopio que te quede más cercano y llévalos a vender.
-          </p>
-        </a>
+      <div class="alert alert-dismissible alert-noteme">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4><i class="glyphicon glyphicon-info-sign"></i> Ubica centros de acopio</h4>
+        <p>Una vez que hayas recolectado uno o más reciclables, ubíca el centro de acopio que te quede más cercano y llévalos a vender.</p>
       </div>
     </div>
   <% else %>
   <div class="col-lg-12">
-    <div class="list-group">
-      <a href="javascript:void(0)" class="list-group-item">
-        <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-info-sign"></i> Cierra el trato</h4>
-        <p class="list-group-item-text">
-          En esta página aparece la lista de reciclables que has publicado, haz click en algún elemento de la lista para ver como va la negociación de tu reciclable. 
-        </p>
-      </a>
+    <div class="alert alert-dismissible alert-noteme">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <h4><i class="glyphicon glyphicon-info-sign"></i> Cierra el trato</h4>
+      <p>En esta página aparece la lista de reciclables que has publicado, haz click en algún elemento de la lista para ver como va la negociación de tu reciclable. <b>Te notificaremos por correo electrónico cuando haya alguien interesado.</b></p>
     </div>
   </div>
   <% end %>

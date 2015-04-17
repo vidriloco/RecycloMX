@@ -33,7 +33,7 @@ class OffersController < ApplicationController
       Tracker.track_offer_created_success(current_user, @offer, request.ip)
       
       if user_signed_in?
-        flash[:notice] = "Tu reciclable está ahora publicado, espera a que alguien te contacte"
+        flash[:notice] = "Tu reciclable está ahora publicado, espera a que alguien te contacte."
         redirect_to offer_path(@offer)
       else
         flash[:notice] = "Para que un recolector te contacte, es necesario registrarse"

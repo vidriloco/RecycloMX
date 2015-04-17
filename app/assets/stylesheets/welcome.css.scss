@@ -123,11 +123,9 @@
     }
   }
   
-	.floating-navbar {
-		position: fixed;
-		float: right;
+  .left-floating-navbar, .floating-navbar {
 		top: 15px;
-		right: 30px;
+		position: fixed;
 		z-index: 99999;
 		font-size: 14px;
     
@@ -143,6 +141,17 @@
         }
       }
     }
+  }
+  
+  .left-floating-navbar {
+		float: left;
+		left: 30px;
+    color: white;
+  }
+  
+	.floating-navbar {
+		float: right;
+		right: 30px;
 	}
   
   .start-opts {

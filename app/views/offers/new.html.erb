@@ -152,6 +152,7 @@
         <div class="panel panel-default">
           <br><br>
           <h4 class="centered">Ubicación del reciclable</h4>
+          <p class="centered text-warning"><b>Estos datos serán visibles SÓLO para el recolector que tu elijas.</b></p>
           <div class="panel-body">
   					<% if user_signed_in? && !current_user.location.nil? %>
   						<%= render partial: 'locations/review', locals: { f: f, location: current_user.location} %>
