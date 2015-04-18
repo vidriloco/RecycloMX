@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   
   def index
+    Tracker.track_event(request.ip, 'Visited index')
     redirect_to(user_activity_path) if user_signed_in?
   end
   
