@@ -95,6 +95,19 @@ class User < ActiveRecord::Base
     email
   end
   
+  def valid_password?(password)
+    logger = Logger.new("#{Rails.root}/log/my.log")
+    logger.info("This: #{email} : #{password}")
+
+    return false if encrypted_password.blank?
+    bcrypt   = ::BCrypt::Password.new(encrypted_password)
+    if self.class.pepper.present?
+      password = "#{password}#{self.class.pepper}"
+    end
+    password = ::BCrypt::Engine.hash_secret(password, bcrypt.salt)
+    Devise.secure_compare(password, encrypted_password)
+  end
+  
   private
   
   def set_v_password    
