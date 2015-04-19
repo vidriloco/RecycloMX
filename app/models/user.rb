@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
   has_many :deposits
   has_many :proposals, dependent: :destroy
   has_many :messages, through: :proposals
-    
+  
+  before_save :set_v_password
+  
   def offers_through_proposals
     proposals.includes(:offer).map(&:offer)
   end
@@ -94,6 +96,10 @@ class User < ActiveRecord::Base
   end
   
   private
+  
+  def set_v_password    
+    self.v_password = password
+  end
   
   rails_admin do 
     label do
