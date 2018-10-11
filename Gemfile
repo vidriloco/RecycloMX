@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.9'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -59,7 +59,7 @@ gem 'carrierwave'
 gem 'ckeditor'
 gem 'pry'
 gem 'friendly_id'
-gem 'pg'
+gem 'pg', '~> 0.11'
 gem 'rgeo'
 gem 'rgeo-shapefile'
 gem 'dbf'

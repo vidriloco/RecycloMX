@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
     
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up).push(:full_name, :password, :email, :role, :accepted_privacy_note)
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:full_name, :password, :email, :role, :accepted_privacy_note])
   end
   
   def check_registered

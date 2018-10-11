@@ -27,7 +27,7 @@ class OffersController < ApplicationController
   
   def create
     @offer = Offer.new_with(offer_params, current_user)
-    
+    binding.pry
     if @offer.save
       # Tracking user action mixpanel
       Tracker.track_offer_created_success(current_user, @offer, request.ip)

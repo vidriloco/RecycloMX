@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.update_with(user_attributes)
       # Tracking user action mixpanel
       Tracker.track_user_updated_profile(current_user, @user, user_attributes, request.ip)
-      sign_in(@user, :bypass => true)
+      sign_in(@user, :bypass_sign_in => true)
       flash[:notice] = "Has actualizado tu perfil :)" 
     else
       flash[:error] = "No pudimos actualizar tu perfil :("
